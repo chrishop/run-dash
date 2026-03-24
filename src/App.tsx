@@ -47,9 +47,10 @@ function App() {
       vdot,
       raceTimes,
       trainingPaces,
-      ageGrading,
       ageComparison,
       userAge: params.a,
+      gender: params.g,
+      units: params.units,
     }
   }, [params.d, params.t, params.a, params.g])
 
@@ -86,7 +87,7 @@ function App() {
           </div>
         </div>
         <InputForm params={params} setParams={setParams} />
-        <ResultsPanel results={results} />
+        <ResultsPanel results={results} onUnitsChange={(units) => setParams({ units })} />
       </div>
     </div>
   )

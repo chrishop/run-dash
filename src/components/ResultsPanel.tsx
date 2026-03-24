@@ -1,14 +1,12 @@
 import { useTranslation } from 'react-i18next'
 import type { Distance } from '../data/distances'
+import type { AgeComparisonRow } from '../calc/ageComparison'
 import type { RaceTimeEntry } from '../calc/raceTimes'
 import type { TrainingPaceResult } from '../calc/trainingPaces'
-import type { AgeGradingResult } from '../calc/ageGrading'
-import type { AgeComparisonRow } from '../calc/ageComparison'
 import { VdotScore } from './VdotScore'
-import { RaceTimesTable } from './RaceTimesTable'
-import { TrainingPaces } from './TrainingPaces'
-import { AgeGrading } from './AgeGrading'
-import { AgeComparisonTable } from './AgeComparisonTable'
+import { UnifiedTrainingCard } from './UnifiedTrainingCard'
+import { AgeComparisonCard } from './AgeComparisonCard'
+import { FinishingTimePercentileCard } from './FinishingTimePercentileCard'
 
 export interface Results {
   distance: Distance
@@ -16,16 +14,18 @@ export interface Results {
   vdot: number | null
   raceTimes: RaceTimeEntry[] | null
   trainingPaces: TrainingPaceResult | null
-  ageGrading: AgeGradingResult | null
   ageComparison: AgeComparisonRow[] | null
   userAge: number | null
+  gender: 'm' | 'f' | null
+  units: 'km' | 'mi'
 }
 
 interface ResultsPanelProps {
   results: Results | null
+  onUnitsChange: (units: 'km' | 'mi') => void
 }
 
-export function ResultsPanel({ results }: ResultsPanelProps) {
+export function ResultsPanel({ results, onUnitsChange }: ResultsPanelProps) {
   const { t } = useTranslation()
 
   if (!results) {
@@ -36,26 +36,27 @@ export function ResultsPanel({ results }: ResultsPanelProps) {
     )
   }
 
-  const { distance, vdot, raceTimes, trainingPaces, ageGrading, ageComparison, userAge } = results
-  const hasAgeGradeData = distance.ageGradeKey !== null
+  const { distance, timeSecs, vdot, raceTimes, trainingPaces, ageComparison, userAge, gender, units } = results
 
   return (
     <div className="mt-8 space-y-6">
       <VdotScore vdot={vdot} />
 
-      {raceTimes && raceTimes.length > 0 && (
-        <RaceTimesTable raceTimes={raceTimes} currentDistanceId={distance.id} />
+      {raceTimes && raceTimes.length > 0 && trainingPaces && trainingPaces.paces.length > 0 && (
+        <UnifiedTrainingCard
+          raceTimes={raceTimes}
+          trainingPaces={trainingPaces}
+          currentDistanceId={distance.id}
+          units={units}
+          onUnitsChange={onUnitsChange}
+        />
       )}
-
-      {trainingPaces && trainingPaces.paces.length > 0 && (
-        <TrainingPaces trainingPaces={trainingPaces} />
-      )}
-
-      <AgeGrading ageGrading={ageGrading} hasAgeGradeData={hasAgeGradeData} />
 
       {ageComparison && ageComparison.length > 0 && (
-        <AgeComparisonTable rows={ageComparison} userAge={userAge} distanceId={distance.id} />
+        <AgeComparisonCard rows={ageComparison} userAge={userAge} distanceId={distance.id} />
       )}
+
+      <FinishingTimePercentileCard distanceId={distance.id} timeSecs={timeSecs} gender={gender} />
     </div>
   )
 }
