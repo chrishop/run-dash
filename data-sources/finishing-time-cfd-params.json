@@ -1,0 +1,25 @@
+{
+  "note": "Log-normal CDF parameters fitted to RunRepeat.com percentile data (11 points including 99th percentile). Times converted from seconds to minutes before fitting. To compute CDF: Φ((ln(t) - μ) / σ) where t is finish time in minutes and Φ is the standard normal CDF.",
+  "distances": {
+    "5K": {
+      "overall": { "mu": 3.557812, "sigma": 0.272093 },
+      "female": { "mu": 3.638031, "sigma": 0.245206 },
+      "male": { "mu": 3.474233, "sigma": 0.273906 }
+    },
+    "10K": {
+      "overall": { "mu": 4.152294, "sigma": 0.243198 },
+      "female": { "mu": 4.231561, "sigma": 0.223566 },
+      "male": { "mu": 4.076155, "sigma": 0.238245 }
+    },
+    "half_marathon": {
+      "overall": { "mu": 4.918209, "sigma": 0.209365 },
+      "female": { "mu": 4.987623, "sigma": 0.188838 },
+      "male": { "mu": 4.837355, "sigma": 0.20582 }
+    },
+    "marathon": {
+      "overall": { "mu": 5.592185, "sigma": 0.195792 },
+      "female": { "mu": 5.653139, "sigma": 0.177434 },
+      "male": { "mu": 5.548391, "sigma": 0.196432 }
+    }
+  }
+}

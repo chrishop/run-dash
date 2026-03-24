@@ -1,0 +1,90 @@
+Description
+Runners tend to slow down as they age and men tend to produce faster times than women. This calculator allows performances to be compared regardless of age, sex or event.
+
+What is an age-grading percentage?
+An age-grading percentage is a way of measuring and comparing the quality of running performances, adjusting for age, sex, and race distance.
+
+A calculation is carried out that takes the age and the sex of the runner into account and produces a single percentage value. This value can then be used to compare performances between males and females and between runners of different ages competing in different events.
+
+Thus it is possible to effectively grade your runs. Your age graded percentage is unique for each distance. I.e. you will likely achieve different age graded scores for different events
+
+One useful application of age gradings is providing a fun and convenient way of allowing a simple comparison between runners that could not otherwise be competitive. So it's possible to compare masters runners with senior runners and junior runners regardless of their events. E.g. a 50-year-old woman's marathon time, a 15-year-old boy's 5k time could be compared with a 65-year-old man's 10k time.
+
+Another benefit of age gradings is that they allow an individual runner to compare their own performances from previous years, or to estimate what they may have run when younger, or are likely to run when older. So, a 60-year-old who's been running for a few years could work out if their performances are improving over time despite slowing down in absolute terms. Or they could dream about what they may have been able to run in their twenties.
+
+A third application is helping individual runners to determine their best distance, or to identify elements of their fitness that are weaker and need work. E.g. a relatively lower age-grading for the half marathon compared to 5k and 10k could suggest that a runner needs to work on endurance (it is actually quite common for newer runners to perform relatively better over shorter distances, mainly because endurance takes many years to develop fully).
+
+The higher the percentage, the better the performance. A value of 100% is generally considered the best that is possible for a particular distance by a runner of a specific age and sex. It is often, but not always, the value produced by the world record time.
+
+Age gradings are calculated with reference to tables that have been compiled by considering a range of performances by male and female athletes of different ages. Find out how our calculator works »
+
+Using the calculator
+To use the calculator simply enter your age, sex, distance and time from a recent race. You can choose from preset track or road distances or specify your own.
+
+Note that the same time for the same distance will yield a different age grading according to whether it is run on the road or the track. Track races tend to result in better performances than the same distances run on the road (running tracks provide a high-quality surface, no hills, easy pacing, accurate distance, and a relatively consistent environment with no surprises), and since the calculator is based on real-life performances, the age gradings reflect this.
+
+Calculating times required to achieve a certain age grading percentage
+We have a reverse age grading calculator that allows you to enter your age, gender, and desired age grading percentage and shows the times you'd need to run in order to achieve that age grading score.
+
+↑ go to calculator
+
+How It Works
+Judging quality
+Your age-grading percentage can be used to objectively indicate your running standard. The table below is typically used:
+
+Percentage	Standard
+100%	World record
+90%+	World class
+80%+	National class
+70%+	Regional class
+60%+	Local class
+Description of terms
+The calculator generates several values in addition to the age-grading percentage. Understanding the terms used to describe these values helps explain how an age-grading percentage is calculated. This section may make more sense once you've got your own results in front of you.
+
+Athlete time
+This is the simply the time achieved by the runner.
+
+Senior athlete
+Who qualifies as a senior athlete varies according to distance, sex and surface, but it is usually runners who fall within a range of ages somewhere between 19 and 34 years old.
+
+For example, for 5 km on the road, a male senior athlete is one aged 19 to 29; for the same event, a female senior athlete is one aged 19 to 26. For the men's marathon, athletes are considered seniors if they are aged 22 to 35; for the women's marathon, it's only the ages of 26 and 27! It becomes clear that "senior" perhaps isn't the best term.
+
+Runners of ages above and below the range for senior athletes are considered at a disadvantage, and this is taken into account when determining their age-grading percentages.
+
+Open-class-standard
+The open-class-standard is the time for the specified distance and sex that will result in an age-grading percentage of 100% for a senior athlete. The open-class-standard can be thought of as the fastest possible time for a distance by an athlete of a specified sex. It is often the world record, or a time very close to the world record.
+
+Age-standard
+The age-standard time is derived from the open-class-standard, and is the time for a specified distance and sex that will result in an age-grading percentage of 100% for an athlete of the specified age. It can be thought of as the fastest possible time for a distance by an athlete of a specified age and sex.
+
+Age-factor
+The age-factor is used to calculate the age standard from the open-class standard. It is a value equal to 1 or less. Specifically, the open-class-standard is divided by the age-factor to give the age-standard.
+
+age-standard = open-class-standard / age-factor
+Senior athletes are assigned an age-factor of 1, so their age-standard is the same as the open-class standard.
+
+Age-graded time
+The age-graded time is the time for a senior that is considered equal in performance to the athlete time. It is calculated by multiplying the time achieved by the age factor.
+
+age-graded time = athlete time * age-factor
+Age-grading percentage
+The age-grading percentage is the value that indicates the quality of a performance and can be used for comparison. It is determined by dividing the age-standard time by the athlete time and converting the resulting proportion to a percentage:
+
+age-grading percentage = age-standard time / athlete time * 100
+Deriving factors
+The factors that are used to calculate age gradings are determined in different ways for track, road, and non-standard distances:
+
+Road
+We calculate age gradings for road events using the 2025 tables maintained by Alan Jones. His website contains detailed information about how the factors are derived and the tables are compiled and there are links to download the age-grading tables as spreadsheets.
+
+Track
+Age gradings for track events are calculated using a mix of techniques.
+
+For senior athletes (ages 20-29), percentages are calculated by direct comparison of a performance to current world senior records.
+
+For athletes aged 30-100, the WMA age grading (formerly WAVA age grading) factors provided are applied to current senior world records to determine age standards, from which percentages are calculated.
+
+For athletes aged 5-19, we derive our own factors using the age-group world records, compiled by Dominique Eisold and then apply these to current senior world records to compile a table of age-standards, which can be used to calculate percentages.
+
+Non-standard distances
+Our calculator allows you to enter any distance between 10 metres and 500 miles (804.67 kilometres). In order to determine age-grading percentages for these non-standard distances, linear interpolation is used to derive a factor between those for the two closest distances available in the relevant table.
