@@ -15,7 +15,6 @@
   "distances": {
     "1500m": "1500m",
     "1mi": "1 Mile",
-    "3km": "3K",
     "5k": "5K",
     "10k": "10K",
     "hm": "Half Marathon",
@@ -63,9 +62,25 @@
     "description": "Times that would achieve the same age-grading percentage at {{distance}}, across different ages and genders.",
     "age": "Age",
     "male": "Male",
-    "female": "Female"
+    "female": "Female",
+    "showTable": "Show table",
+    "hideTable": "Hide table"
+  },
+  "percentile": {
+    "title": "How Do You Compare?",
+    "fasterThan": "You finished faster than {{pct}}% of {{distance}} runners",
+    "overall": "Overall",
+    "male": "Male",
+    "female": "Female",
+    "xAxisLabel": "Finish time",
+    "yAxisLabel": "% of runners slower"
   },
   "results": {
     "prompt": "Select a distance and enter your time to see results."
+  },
+  "units": {
+    "title": "Units",
+    "km": "km",
+    "mi": "mi"
   }
 }
