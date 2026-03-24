@@ -15,7 +15,6 @@
   "distances": {
     "1500m": "1500m",
     "1mi": "1마일",
-    "3km": "3K",
     "5k": "5K",
     "10k": "10K",
     "hm": "하프 마라톤",
@@ -46,6 +45,11 @@
     "marathon": "마라톤",
     "threshold": "역치"
   },
+  "units": {
+    "title": "단위",
+    "km": "km",
+    "mi": "마일"
+  },
   "ageGrading": {
     "title": "연령 등급",
     "notAvailable": "이 거리에서는 연령 등급을 사용할 수 없습니다. 표준 도로 레이스 거리(1마일, 5K, 10K, 하프 마라톤 또는 마라톤)가 필요합니다.",
@@ -63,7 +67,18 @@
     "description": "{{distance}}에서 동일한 연령 등급 백분율을 달성하기 위한 시간 (나이 및 성별별).",
     "age": "나이",
     "male": "남성",
-    "female": "여성"
+    "female": "여성",
+    "showTable": "표 보기",
+    "hideTable": "표 숨기기"
+  },
+  "percentile": {
+    "title": "기록 비교",
+    "fasterThan": "{{distance}} 완주자의 {{pct}}%보다 빠릅니다",
+    "overall": "전체",
+    "male": "남성",
+    "female": "여성",
+    "xAxisLabel": "완주 시간",
+    "yAxisLabel": "느린 주자 비율 (%)"
   },
   "results": {
     "prompt": "거리를 선택하고 시간을 입력하면 결과를 확인할 수 있습니다."
