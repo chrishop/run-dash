@@ -52,7 +52,7 @@ function App() {
       gender: params.g,
       units: params.units,
     }
-  }, [params.d, params.t, params.a, params.g])
+  }, [params.d, params.t, params.a, params.g, params.units])
 
   return (
     <div className="min-h-screen bg-neo-red">
