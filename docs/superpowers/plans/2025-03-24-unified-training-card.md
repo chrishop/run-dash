@@ -236,6 +236,22 @@ git commit -m "i18n: remove 3km and add units translations (ko)
 
 ---
 
+## Task 4.5: Verify Utility Functions Exist
+
+**Files:**
+- Read: `src/calc/timeUtils.ts`
+
+- [ ] **Step 1: Verify formatTime and formatPace are exported**
+
+Run: `grep -E "export (function|const).*(formatTime|formatPace)" src/calc/timeUtils.ts`
+Expected: Should see both functions exported
+
+- [ ] **Step 2: If functions don't exist, note it for implementation**
+
+(These functions should exist based on current codebase - if not, we'll need to add them)
+
+---
+
 ## Task 5: Create UnifiedTrainingCard Component
 
 **Files:**
@@ -584,6 +600,14 @@ Find the `return` statement in the `useMemo` hook (around line 44) and add `unit
     }
 ```
 
+- [ ] **Step 2.5: Update useMemo dependency array**
+
+Find the `useMemo` dependency array (around line 54) and add `params.units`:
+
+```typescript
+  }, [params.d, params.t, params.a, params.g, params.units])
+```
+
 - [ ] **Step 3: Create units change handler**
 
 Add a handler function before the return statement of the App component (around line 56):
@@ -654,6 +678,62 @@ git commit -m "refactor: remove obsolete components
 
 ---
 
+## Task 8.5: Add Backward Compatibility for 3km URLs
+
+**Files:**
+- Modify: `src/hooks/useUrlParams.ts`
+
+- [ ] **Step 1: Add migration for legacy 3km URLs**
+
+In the `parseParams` function, after parsing `d`, add a migration:
+
+```typescript
+function parseParams(search: string): UrlParams {
+  const params = new URLSearchParams(search)
+  const ageStr = params.get('a')
+  const gender = params.get('g')
+  const lang = params.get('lang')
+  const units = params.get('units')
+  let d = params.get('d')
+
+  // Migrate legacy 3km URLs to 5km
+  if (d === '3km') {
+    d = '5k'
+    // Update URL to reflect the migration
+    const newUrl = new URLSearchParams(search)
+    newUrl.set('d', '5k')
+    window.history.replaceState(null '', `?${newUrl.toString()}`)
+  }
+
+  return {
+    d,
+    t: params.get('t'),
+    a: ageStr ? parseInt(ageStr, 10) : null,
+    g: gender === 'm' || gender === 'f' ? gender : null,
+    units: units === 'mi' ? 'mi' : 'km',
+    lang: lang === 'ko' ? 'ko' : 'en',
+  }
+}
+```
+
+- [ ] **Step 2: Verify TypeScript compiles**
+
+Run: `npm run build`
+Expected: Build succeeds
+
+- [ ] **Step 3: Commit**
+
+```bash
+git add src/hooks/useUrlParams.ts
+git commit -m "feat: migrate legacy 3km URLs to 5km
+
+- Auto-redirect ?d=3km to ?d=5k
+- Update URL in place to avoid broken bookmarks
+"
+```
+
+---
+
 ## Task 9: Manual Testing
 
 **Files:**
@@ -701,7 +781,9 @@ git commit -m "refactor: remove obsolete components
 - [ ] **Step 7: Test backward compatibility with 3km URLs**
 
 1. Visit `http://localhost:5173/?d=3km&t=12:00`
-2. Should handle gracefully (no crash, clear message or default to valid distance)
+2. URL should auto-redirect to `?d=5k&t=12:00`
+3. App should load with 5k distance selected
+4. No errors or crashes
 
 ---
 
@@ -715,10 +797,13 @@ git commit -m "refactor: remove obsolete components
 Run: `npm run build`
 Expected: Clean build with no errors or warnings
 
-- [ ] **Step 2: Check for unused imports**
+- [ ] **Step 2: Check for unused imports and React hooks dependencies**
 
 Run: `npx tsc --noEmit`
 Expected: No type errors
+
+Run: `npm run lint` (if ESLint is configured) OR verify no console warnings about React Hooks dependencies
+Expected: No React Hooks exhaustive-deps warnings
 
 - [ ] **Step 3: Final commit if needed**
 
