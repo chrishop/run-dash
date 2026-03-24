@@ -13,7 +13,7 @@ const COMPARISON_AGES = [20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85,
  * For the user's age-grading percentage, compute the equivalent finishing time
  * at each age (20-90 in 5-year steps) for both genders.
  *
- * Formula (rearranged): targetTime = (worldRecordSecs * ageFactor) / (ageGradingPct / 100)
+ * Formula (rearranged): targetTime = (worldRecordSecs / ageFactor) / (ageGradingPct / 100)
  */
 export function getAgeComparisonTable(
   distance: Distance,
@@ -32,7 +32,7 @@ export function getAgeComparisonTable(
     if (maleEntry) {
       const factor = maleEntry.factors[ageStr]
       if (factor !== undefined) {
-        maleTimeSecs = (maleEntry.worldRecordSecs * factor) / pctFraction
+        maleTimeSecs = maleEntry.worldRecordSecs / factor / pctFraction
       }
     }
 
@@ -40,7 +40,7 @@ export function getAgeComparisonTable(
     if (femaleEntry) {
       const factor = femaleEntry.factors[ageStr]
       if (factor !== undefined) {
-        femaleTimeSecs = (femaleEntry.worldRecordSecs * factor) / pctFraction
+        femaleTimeSecs = femaleEntry.worldRecordSecs / factor / pctFraction
       }
     }
 

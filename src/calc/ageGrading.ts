@@ -40,8 +40,10 @@ export function getAgeGrading(
   const ageFactor = entry.factors[String(Math.round(age))]
   if (ageFactor === undefined) return null
 
-  // age-grading % = (world_record * age_factor) / athlete_time * 100
-  const percentage = ((entry.worldRecordSecs * ageFactor) / timeSecs) * 100
+  // age-standard = world_record / age_factor
+  // age-grading % = age-standard / athlete_time * 100
+  const ageStandard = entry.worldRecordSecs / ageFactor
+  const percentage = (ageStandard / timeSecs) * 100
   const { label, color } = getBenchmark(percentage)
 
   return {
