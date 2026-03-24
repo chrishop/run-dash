@@ -5,10 +5,11 @@ export interface UrlParams {
   t: string | null
   a: number | null
   g: 'm' | 'f' | null
+  units: 'km' | 'mi'
   lang: 'en' | 'ko'
 }
 
-type ParamKey = 'd' | 't' | 'a' | 'g' | 'lang'
+type ParamKey = 'd' | 't' | 'a' | 'g' | 'units' | 'lang'
 
 function getSnapshot(): string {
   return window.location.search
@@ -24,12 +25,14 @@ function parseParams(search: string): UrlParams {
   const ageStr = params.get('a')
   const gender = params.get('g')
   const lang = params.get('lang')
+  const units = params.get('units')
 
   return {
     d: params.get('d'),
     t: params.get('t'),
     a: ageStr ? parseInt(ageStr, 10) : null,
     g: gender === 'm' || gender === 'f' ? gender : null,
+    units: units === 'mi' ? 'mi' : 'km',
     lang: lang === 'ko' ? 'ko' : 'en',
   }
 }
