@@ -29,7 +29,11 @@ export function ResultsPanel({ results }: ResultsPanelProps) {
   const { t } = useTranslation()
 
   if (!results) {
-    return <div className="mt-8 text-gray-400 text-center py-12">{t('results.prompt')}</div>
+    return (
+      <div className="mt-8 bg-white border-3 border-neo-dark rounded-xl p-12 shadow-[6px_6px_0px_0px_#1A1A2E] text-center">
+        <p className="text-neo-dark font-black text-lg uppercase">{t('results.prompt')}</p>
+      </div>
+    )
   }
 
   const { distance, vdot, raceTimes, trainingPaces, ageGrading, ageComparison, userAge } = results

@@ -15,7 +15,6 @@ function App() {
   const { t, i18n } = useTranslation()
   const [params, setParams] = useUrlParams()
 
-  // Sync i18n language with URL param
   useEffect(() => {
     if (i18n.language !== params.lang) {
       i18n.changeLanguage(params.lang)
@@ -55,18 +54,20 @@ function App() {
   }, [params.d, params.t, params.a, params.g])
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900">
+    <div className="min-h-screen bg-neo-red">
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <div className="flex items-center justify-between mb-6">
-          <h1 className="text-3xl font-bold">{t('app.title')}</h1>
-          <div className="flex gap-1">
+        <div className="flex items-center justify-between mb-8">
+          <h1 className="text-4xl font-black text-neo-dark uppercase tracking-tight">
+            {t('app.title')}
+          </h1>
+          <div className="flex">
             <button
               type="button"
               onClick={() => setParams({ lang: 'en' })}
-              className={`px-3 py-1 text-sm rounded-l-md border transition-colors ${
+              className={`px-4 py-2 text-sm font-bold uppercase border-3 border-neo-dark rounded-l-md transition-all ${
                 params.lang === 'en'
-                  ? 'bg-blue-600 text-white border-blue-600'
-                  : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                  ? 'bg-neo-yellow text-neo-dark shadow-[3px_3px_0px_0px_#1A1A2E]'
+                  : 'bg-white text-neo-dark hover:bg-neo-yellow/30'
               }`}
             >
               EN
@@ -74,10 +75,10 @@ function App() {
             <button
               type="button"
               onClick={() => setParams({ lang: 'ko' })}
-              className={`px-3 py-1 text-sm rounded-r-md border-t border-b border-r transition-colors ${
+              className={`px-4 py-2 text-sm font-bold border-3 border-l-0 border-neo-dark rounded-r-md transition-all ${
                 params.lang === 'ko'
-                  ? 'bg-blue-600 text-white border-blue-600'
-                  : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                  ? 'bg-neo-yellow text-neo-dark shadow-[3px_3px_0px_0px_#1A1A2E]'
+                  : 'bg-white text-neo-dark hover:bg-neo-yellow/30'
               }`}
             >
               한국어

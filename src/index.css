@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+@theme {
+  --color-neo-red: #FF6B6B;
+  --color-neo-blue: #69D2E7;
+  --color-neo-yellow: #FFE66D;
+  --color-neo-green: #4ECDC4;
+  --color-neo-purple: #A855F7;
+  --color-neo-orange: #FF8C42;
+  --color-neo-pink: #FF6BB5;
+  --color-neo-dark: #1A1A2E;
+  --font-sans: 'Noto Sans KR', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+}

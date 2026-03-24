@@ -11,22 +11,22 @@ export function RaceTimesTable({ raceTimes, currentDistanceId }: RaceTimesTableP
   const { t } = useTranslation()
 
   return (
-    <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-      <h2 className="text-lg font-semibold text-gray-700 mb-4">{t('raceTimes.title')}</h2>
+    <div className="bg-neo-yellow border-3 border-neo-dark rounded-xl p-6 shadow-[6px_6px_0px_0px_#1A1A2E]">
+      <h2 className="text-lg font-black text-neo-dark uppercase mb-4">{t('raceTimes.title')}</h2>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-gray-200">
-              <th className="text-left py-2 pr-4 font-medium text-gray-600">
+            <tr className="border-b-3 border-neo-dark">
+              <th className="text-left py-2 pr-4 font-black text-neo-dark uppercase">
                 {t('raceTimes.distance')}
               </th>
-              <th className="text-right py-2 px-4 font-medium text-gray-600">
+              <th className="text-right py-2 px-4 font-black text-neo-dark uppercase">
                 {t('raceTimes.time')}
               </th>
-              <th className="text-right py-2 px-4 font-medium text-gray-600">
+              <th className="text-right py-2 px-4 font-black text-neo-dark uppercase">
                 {t('raceTimes.paceKm')}
               </th>
-              <th className="text-right py-2 pl-4 font-medium text-gray-600">
+              <th className="text-right py-2 pl-4 font-black text-neo-dark uppercase">
                 {t('raceTimes.paceMi')}
               </th>
             </tr>
@@ -37,8 +37,8 @@ export function RaceTimesTable({ raceTimes, currentDistanceId }: RaceTimesTableP
               return (
                 <tr
                   key={rt.distance.id}
-                  className={`border-b border-gray-100 ${
-                    isCurrentDistance ? 'bg-blue-50 font-semibold' : ''
+                  className={`border-b-2 border-neo-dark/20 ${
+                    isCurrentDistance ? 'bg-neo-green/30 font-black' : 'font-bold'
                   }`}
                 >
                   <td className="py-2 pr-4">{t(`distances.${rt.distance.id}`)}</td>
