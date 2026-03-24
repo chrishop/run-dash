@@ -1,17 +1,20 @@
+import { useTranslation } from 'react-i18next'
 import { DISTANCES } from '../data/distances'
 import type { UrlParams } from '../hooks/useUrlParams'
 
 interface InputFormProps {
   params: UrlParams
-  setParams: (updates: Partial<Record<'d' | 't' | 'a' | 'g', string | null>>) => void
+  setParams: (updates: Partial<Record<'d' | 't' | 'a' | 'g' | 'lang', string | null>>) => void
 }
 
 export function InputForm({ params, setParams }: InputFormProps) {
+  const { t } = useTranslation()
+
   return (
     <div className="flex flex-wrap gap-4 items-end">
       <div className="flex flex-col gap-1">
         <label htmlFor="distance" className="text-sm font-medium text-gray-600">
-          Distance
+          {t('input.distance')}
         </label>
         <select
           id="distance"
@@ -19,10 +22,10 @@ export function InputForm({ params, setParams }: InputFormProps) {
           onChange={(e) => setParams({ d: e.target.value || null })}
           className="px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
-          <option value="">Select distance</option>
+          <option value="">{t('input.selectDistance')}</option>
           {DISTANCES.map((d) => (
             <option key={d.id} value={d.id}>
-              {d.label}
+              {t(`distances.${d.id}`)}
             </option>
           ))}
         </select>
@@ -30,21 +33,21 @@ export function InputForm({ params, setParams }: InputFormProps) {
 
       <div className="flex flex-col gap-1">
         <label htmlFor="time" className="text-sm font-medium text-gray-600">
-          Time
+          {t('input.time')}
         </label>
         <input
           id="time"
           type="text"
           value={params.t ?? ''}
           onChange={(e) => setParams({ t: e.target.value || null })}
-          placeholder="MM:SS or HH:MM:SS"
+          placeholder={t('input.timePlaceholder')}
           className="px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 w-44"
         />
       </div>
 
       <div className="flex flex-col gap-1">
         <label htmlFor="age" className="text-sm font-medium text-gray-600">
-          Age
+          {t('input.age')}
         </label>
         <input
           id="age"
@@ -53,13 +56,13 @@ export function InputForm({ params, setParams }: InputFormProps) {
           max={100}
           value={params.a ?? ''}
           onChange={(e) => setParams({ a: e.target.value || null })}
-          placeholder="Age"
+          placeholder={t('input.age')}
           className="px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 w-20"
         />
       </div>
 
       <div className="flex flex-col gap-1">
-        <label className="text-sm font-medium text-gray-600">Gender</label>
+        <label className="text-sm font-medium text-gray-600">{t('input.gender')}</label>
         <div className="flex">
           <button
             type="button"
@@ -70,7 +73,7 @@ export function InputForm({ params, setParams }: InputFormProps) {
                 : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
             }`}
           >
-            Male
+            {t('input.male')}
           </button>
           <button
             type="button"
@@ -81,7 +84,7 @@ export function InputForm({ params, setParams }: InputFormProps) {
                 : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
             }`}
           >
-            Female
+            {t('input.female')}
           </button>
         </div>
       </div>

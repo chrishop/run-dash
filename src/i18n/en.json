@@ -1,0 +1,71 @@
+{
+  "app": {
+    "title": "Run Dash"
+  },
+  "input": {
+    "distance": "Distance",
+    "selectDistance": "Select distance",
+    "time": "Time",
+    "timePlaceholder": "MM:SS or HH:MM:SS",
+    "age": "Age",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female"
+  },
+  "distances": {
+    "1500m": "1500m",
+    "1mi": "1 Mile",
+    "3km": "3K",
+    "5k": "5K",
+    "10k": "10K",
+    "hm": "Half Marathon",
+    "mar": "Marathon"
+  },
+  "vdot": {
+    "title": "VDOT",
+    "outOfRange": "Time is outside the VDOT table range (30.0\u201385.0)"
+  },
+  "raceTimes": {
+    "title": "Estimated Race Times",
+    "distance": "Distance",
+    "time": "Time",
+    "paceKm": "Pace /km",
+    "paceMi": "Pace /mi"
+  },
+  "trainingPaces": {
+    "title": "Training Paces",
+    "intensity": "Intensity",
+    "paceKm": "Pace /km",
+    "paceMi": "Pace /mi",
+    "intervalTitle": "Interval Workout Times",
+    "distance": "Distance",
+    "interval": "Interval",
+    "repetition": "Repetition",
+    "easySlow": "Easy (slow)",
+    "easyFast": "Easy (fast)",
+    "marathon": "Marathon",
+    "threshold": "Threshold"
+  },
+  "ageGrading": {
+    "title": "Age Grading",
+    "notAvailable": "Age grading is not available for this distance. It requires standard road race distances (1 mile, 5K, 10K, half marathon, or marathon).",
+    "explainerTitle": "What do the percentages mean?",
+    "explainerText": "Age grading adjusts your performance for age and sex, comparing it to the world record standard for your demographic. A higher percentage means a stronger performance relative to your age and sex.",
+    "worldRecord": "World Record",
+    "worldClass": "World Class",
+    "nationalClass": "National Class",
+    "regionalClass": "Regional Class",
+    "localClass": "Local Class",
+    "recreational": "Recreational"
+  },
+  "ageComparison": {
+    "title": "Equivalent Performance by Age & Gender",
+    "description": "Times that would achieve the same age-grading percentage at {{distance}}, across different ages and genders.",
+    "age": "Age",
+    "male": "Male",
+    "female": "Female"
+  },
+  "results": {
+    "prompt": "Select a distance and enter your time to see results."
+  }
+}

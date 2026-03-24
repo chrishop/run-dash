@@ -3,23 +3,23 @@ import type { Distance } from '../data/distances'
 
 export interface AgeGradingResult {
   percentage: number
-  benchmark: string
+  benchmarkKey: string
   benchmarkColor: string
 }
 
-const BENCHMARKS: { min: number; label: string; color: string }[] = [
-  { min: 90, label: 'World Class', color: 'text-purple-700' },
-  { min: 80, label: 'National Class', color: 'text-blue-700' },
-  { min: 70, label: 'Regional Class', color: 'text-green-700' },
-  { min: 60, label: 'Local Class', color: 'text-yellow-700' },
-  { min: 0, label: 'Recreational', color: 'text-gray-600' },
+const BENCHMARKS: { min: number; key: string; color: string }[] = [
+  { min: 90, key: 'ageGrading.worldClass', color: 'text-purple-700' },
+  { min: 80, key: 'ageGrading.nationalClass', color: 'text-blue-700' },
+  { min: 70, key: 'ageGrading.regionalClass', color: 'text-green-700' },
+  { min: 60, key: 'ageGrading.localClass', color: 'text-yellow-700' },
+  { min: 0, key: 'ageGrading.recreational', color: 'text-gray-600' },
 ]
 
-function getBenchmark(pct: number): { label: string; color: string } {
+function getBenchmark(pct: number): { key: string; color: string } {
   for (const b of BENCHMARKS) {
-    if (pct >= b.min) return { label: b.label, color: b.color }
+    if (pct >= b.min) return { key: b.key, color: b.color }
   }
-  return { label: 'Recreational', color: 'text-gray-600' }
+  return { key: 'ageGrading.recreational', color: 'text-gray-600' }
 }
 
 /**
@@ -44,11 +44,11 @@ export function getAgeGrading(
   // age-grading % = age-standard / athlete_time * 100
   const ageStandard = entry.worldRecordSecs / ageFactor
   const percentage = (ageStandard / timeSecs) * 100
-  const { label, color } = getBenchmark(percentage)
+  const { key, color } = getBenchmark(percentage)
 
   return {
     percentage,
-    benchmark: label,
+    benchmarkKey: key,
     benchmarkColor: color,
   }
 }

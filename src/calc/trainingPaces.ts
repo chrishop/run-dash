@@ -1,7 +1,7 @@
 import { getVdotEntry } from '../data/vdotTable'
 
 export interface PaceLevel {
-  label: string
+  labelKey: string
   secPerKm: number
   secPerMi: number
 }
@@ -31,12 +31,36 @@ export function getTrainingPaces(vdot: number): TrainingPaceResult {
   const tp = entry.training_paces
 
   const paces: PaceLevel[] = [
-    { label: 'Easy (slow)', secPerKm: tp.easy_slow.sec_per_km, secPerMi: tp.easy_slow.sec_per_mi },
-    { label: 'Easy (fast)', secPerKm: tp.easy_fast.sec_per_km, secPerMi: tp.easy_fast.sec_per_mi },
-    { label: 'Marathon', secPerKm: tp.marathon.sec_per_km, secPerMi: tp.marathon.sec_per_mi },
-    { label: 'Threshold', secPerKm: tp.threshold.sec_per_km, secPerMi: tp.threshold.sec_per_mi },
-    { label: 'Interval', secPerKm: tp.interval.sec_per_km, secPerMi: tp.interval.sec_per_mi },
-    { label: 'Repetition', secPerKm: tp.repetition.sec_per_km, secPerMi: tp.repetition.sec_per_mi },
+    {
+      labelKey: 'trainingPaces.easySlow',
+      secPerKm: tp.easy_slow.sec_per_km,
+      secPerMi: tp.easy_slow.sec_per_mi,
+    },
+    {
+      labelKey: 'trainingPaces.easyFast',
+      secPerKm: tp.easy_fast.sec_per_km,
+      secPerMi: tp.easy_fast.sec_per_mi,
+    },
+    {
+      labelKey: 'trainingPaces.marathon',
+      secPerKm: tp.marathon.sec_per_km,
+      secPerMi: tp.marathon.sec_per_mi,
+    },
+    {
+      labelKey: 'trainingPaces.threshold',
+      secPerKm: tp.threshold.sec_per_km,
+      secPerMi: tp.threshold.sec_per_mi,
+    },
+    {
+      labelKey: 'trainingPaces.interval',
+      secPerKm: tp.interval.sec_per_km,
+      secPerMi: tp.interval.sec_per_mi,
+    },
+    {
+      labelKey: 'trainingPaces.repetition',
+      secPerKm: tp.repetition.sec_per_km,
+      secPerMi: tp.repetition.sec_per_mi,
+    },
   ]
 
   const intervals: IntervalWorkout[] = INTERVAL_DISTANCES.map((distanceM) => ({

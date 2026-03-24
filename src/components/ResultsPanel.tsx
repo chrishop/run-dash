@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import type { Distance } from '../data/distances'
 import type { RaceTimeEntry } from '../calc/raceTimes'
 import type { TrainingPaceResult } from '../calc/trainingPaces'
@@ -25,12 +26,10 @@ interface ResultsPanelProps {
 }
 
 export function ResultsPanel({ results }: ResultsPanelProps) {
+  const { t } = useTranslation()
+
   if (!results) {
-    return (
-      <div className="mt-8 text-gray-400 text-center py-12">
-        Select a distance and enter your time to see results.
-      </div>
-    )
+    return <div className="mt-8 text-gray-400 text-center py-12">{t('results.prompt')}</div>
   }
 
   const { distance, vdot, raceTimes, trainingPaces, ageGrading, ageComparison, userAge } = results
@@ -51,7 +50,7 @@ export function ResultsPanel({ results }: ResultsPanelProps) {
       <AgeGrading ageGrading={ageGrading} hasAgeGradeData={hasAgeGradeData} />
 
       {ageComparison && ageComparison.length > 0 && (
-        <AgeComparisonTable rows={ageComparison} userAge={userAge} distanceLabel={distance.label} />
+        <AgeComparisonTable rows={ageComparison} userAge={userAge} distanceId={distance.id} />
       )}
     </div>
   )

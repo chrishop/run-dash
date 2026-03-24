@@ -1,34 +1,39 @@
+import { useTranslation } from 'react-i18next'
 import type { AgeComparisonRow } from '../calc/ageComparison'
 import { formatTime } from '../calc/timeUtils'
 
 interface AgeComparisonTableProps {
   rows: AgeComparisonRow[]
   userAge: number | null
-  distanceLabel: string
+  distanceId: string
 }
 
-export function AgeComparisonTable({ rows, userAge, distanceLabel }: AgeComparisonTableProps) {
+export function AgeComparisonTable({ rows, userAge, distanceId }: AgeComparisonTableProps) {
+  const { t } = useTranslation()
+
   if (rows.length === 0) return null
 
-  // Find the closest 5-year age bracket to highlight
   const highlightAge = userAge !== null ? Math.round(userAge / 5) * 5 : null
 
   return (
     <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-      <h2 className="text-lg font-semibold text-gray-700 mb-2">
-        Equivalent Performance by Age & Gender
-      </h2>
+      <h2 className="text-lg font-semibold text-gray-700 mb-2">{t('ageComparison.title')}</h2>
       <p className="text-sm text-gray-500 mb-4">
-        Times that would achieve the same age-grading percentage at {distanceLabel}, across
-        different ages and genders.
+        {t('ageComparison.description', { distance: t(`distances.${distanceId}`) })}
       </p>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-gray-200">
-              <th className="text-left py-2 pr-4 font-medium text-gray-600">Age</th>
-              <th className="text-right py-2 px-4 font-medium text-gray-600">Male</th>
-              <th className="text-right py-2 pl-4 font-medium text-gray-600">Female</th>
+              <th className="text-left py-2 pr-4 font-medium text-gray-600">
+                {t('ageComparison.age')}
+              </th>
+              <th className="text-right py-2 px-4 font-medium text-gray-600">
+                {t('ageComparison.male')}
+              </th>
+              <th className="text-right py-2 pl-4 font-medium text-gray-600">
+                {t('ageComparison.female')}
+              </th>
             </tr>
           </thead>
           <tbody>
