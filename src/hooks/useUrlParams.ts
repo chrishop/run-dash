@@ -26,19 +26,9 @@ function parseParams(search: string): UrlParams {
   const gender = params.get('g')
   const lang = params.get('lang')
   const units = params.get('units')
-  let d = params.get('d')
-
-  // Migrate legacy 3km URLs to 5km
-  if (d === '3km') {
-    d = '5k'
-    // Update URL to reflect the migration
-    const newUrl = new URLSearchParams(search)
-    newUrl.set('d', '5k')
-    window.history.replaceState(null, '', `?${newUrl.toString()}`)
-  }
 
   return {
-    d,
+    d: params.get('d'),
     t: params.get('t'),
     a: ageStr ? parseInt(ageStr, 10) : null,
     g: gender === 'm' || gender === 'f' ? gender : null,
