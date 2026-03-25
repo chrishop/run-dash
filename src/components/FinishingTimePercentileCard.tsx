@@ -75,13 +75,13 @@ export function FinishingTimePercentileCard({
 
   const params = cdfParams.distances[cdfKey]
 
-  // Compute user percentile (how many runners are FASTER = 1 - CDF)
-  const overallPct = Math.round((1 - logNormalCDF(timeSecs, params.overall.mu, params.overall.sigma)) * 100)
+  // "faster than X.X%" = 1 - CDF(t), floored to 1 decimal to avoid showing 100%
+  const overallPct = Math.floor((1 - logNormalCDF(timeSecs, params.overall.mu, params.overall.sigma)) * 1000) / 10
   const genderPct =
     gender === 'm'
-      ? Math.round((1 - logNormalCDF(timeSecs, params.male.mu, params.male.sigma)) * 100)
+      ? Math.floor((1 - logNormalCDF(timeSecs, params.male.mu, params.male.sigma)) * 1000) / 10
       : gender === 'f'
-        ? Math.round((1 - logNormalCDF(timeSecs, params.female.mu, params.female.sigma)) * 100)
+        ? Math.floor((1 - logNormalCDF(timeSecs, params.female.mu, params.female.sigma)) * 1000) / 10
         : null
 
   // Generate curve data
@@ -93,9 +93,9 @@ export function FinishingTimePercentileCard({
 
     // Evaluate both distributions at the SAME time points (from overall curve)
     const data = overallCurve.map((pt) => {
-      const overallPercentile = pt.percentile
+      const overallPercentile = Math.floor(logNormalCDF(pt.timeSecs, params.overall.mu, params.overall.sigma) * 1000) / 10
       const genderPercentile = genderParams
-        ? Math.round(logNormalCDF(pt.timeSecs, genderParams.mu, genderParams.sigma) * 1000) / 10
+        ? Math.floor(logNormalCDF(pt.timeSecs, genderParams.mu, genderParams.sigma) * 1000) / 10
         : null
 
       return {
@@ -129,17 +129,20 @@ export function FinishingTimePercentileCard({
     return ticks
   }, [xDomain])
 
-  const headlinePct = genderPct ?? overallPct
+  const genderLabel = gender === 'm' ? t('percentile.male').toLowerCase() : gender === 'f' ? t('percentile.female').toLowerCase() : null
 
   return (
     <div className="bg-indigo-600 border-3 border-neo-dark rounded-xl p-6 shadow-[6px_6px_0px_0px_#1A1A2E]">
       <h2 className="text-lg font-black text-white uppercase mb-2">{t('percentile.title')}</h2>
-      <p className="text-2xl font-black text-neo-yellow mb-4">
-        {t('percentile.fasterThan', {
-          pct: headlinePct,
-          distance: distanceLabel,
-        })}
+      <p className="text-2xl font-black text-neo-yellow mb-1">
+        {t('percentile.fasterThan', { pct: overallPct, distance: distanceLabel })}
       </p>
+      {genderPct !== null && genderLabel && (
+        <p className="text-base font-bold text-white/80 mb-4">
+          {t('percentile.fasterThanGender', { pct: genderPct, gender: genderLabel, distance: distanceLabel })}
+        </p>
+      )}
+      {genderPct === null && <div className="mb-4" />}
 
       <ResponsiveContainer width="100%" height={260}>
         <LineChart data={chartData} margin={{ top: 20, right: 16, left: 8, bottom: 4 }}>
@@ -172,11 +175,12 @@ export function FinishingTimePercentileCard({
             strokeWidth={2}
             strokeDasharray="5 3"
             label={{
-              value: `${headlinePct}%`,
+              value: `${overallPct}%`,
               fill: '#facc15',
               fontWeight: 700,
               fontSize: 12,
-              position: 'top',
+              position: 'insideTopLeft',
+              offset: 4,
             }}
           />
 

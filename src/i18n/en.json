@@ -69,6 +69,7 @@
   "percentile": {
     "title": "How Do You Compare?",
     "fasterThan": "You finished faster than {{pct}}% of {{distance}} runners",
+    "fasterThanGender": "You finished faster than {{pct}}% of {{gender}} {{distance}} runners",
     "overall": "Overall",
     "male": "Male",
     "female": "Female",
@@ -79,7 +80,7 @@
     "prompt": "Select a distance and enter your time to see results."
   },
   "units": {
-    "title": "Units",
+    "title": "Paces",
     "km": "km",
     "mi": "mi"
   }

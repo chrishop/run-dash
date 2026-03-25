@@ -18,7 +18,7 @@
     "5k": "5K",
     "10k": "10K",
     "hm": "하프 마라톤",
-    "mar": "마라톤"
+    "mar": "풀 마라톤"
   },
   "vdot": {
     "title": "VDOT",
@@ -46,7 +46,7 @@
     "threshold": "역치"
   },
   "units": {
-    "title": "단위",
+    "title": "페이스",
     "km": "km",
     "mi": "마일"
   },
@@ -74,6 +74,7 @@
   "percentile": {
     "title": "기록 비교",
     "fasterThan": "{{distance}} 완주자의 {{pct}}%보다 빠릅니다",
+    "fasterThanGender": "{{gender}} {{distance}} 완주자의 {{pct}}%보다 빠릅니다",
     "overall": "전체",
     "male": "남성",
     "female": "여성",

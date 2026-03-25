@@ -22,19 +22,19 @@ export function UnifiedTrainingCard({
   const { paces, intervals } = trainingPaces
 
   return (
-    <div className="bg-neo-yellow border-3 border-neo-dark rounded-xl p-6 shadow-[6px_6px_0px_0px_#1A1A2E]">
+    <div className="bg-white border-3 border-neo-dark rounded-xl p-6 shadow-[6px_6px_0px_0px_#1A1A2E]">
       {/* Header with Units Toggle */}
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-black text-neo-dark uppercase">
           {t('units.title')}
         </h2>
-        <div className="flex gap-2">
+        <div className="flex">
           <button
             type="button"
             onClick={() => onUnitsChange('km')}
-            className={`px-4 py-2 text-sm font-bold border-3 border-neo-dark rounded-l-md transition-all ${
+            className={`px-4 py-2 text-sm font-bold uppercase border-3 border-neo-dark rounded-l-md transition-all ${
               units === 'km'
-                ? 'bg-neo-dark text-neo-yellow shadow-[3px_3px_0px_0px_#1A1A2E]'
+                ? 'bg-neo-yellow text-neo-dark shadow-[3px_3px_0px_0px_#1A1A2E]'
                 : 'bg-white text-neo-dark hover:bg-neo-yellow/30'
             }`}
           >
@@ -43,9 +43,9 @@ export function UnifiedTrainingCard({
           <button
             type="button"
             onClick={() => onUnitsChange('mi')}
-            className={`px-4 py-2 text-sm font-bold border-3 border-l-0 border-neo-dark rounded-r-md transition-all ${
+            className={`px-4 py-2 text-sm font-bold uppercase border-3 border-l-0 border-neo-dark rounded-r-md transition-all ${
               units === 'mi'
-                ? 'bg-neo-dark text-neo-yellow shadow-[3px_3px_0px_0px_#1A1A2E]'
+                ? 'bg-neo-yellow text-neo-dark shadow-[3px_3px_0px_0px_#1A1A2E]'
                 : 'bg-white text-neo-dark hover:bg-neo-yellow/30'
             }`}
           >
