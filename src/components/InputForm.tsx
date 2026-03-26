@@ -15,7 +15,7 @@ export function InputForm({ params, setParams }: InputFormProps) {
 
   return (
     <div className="bg-neo-blue border-3 border-neo-dark rounded-xl p-6 shadow-[6px_6px_0px_0px_#1A1A2E]">
-      <div className="flex flex-wrap gap-4 items-end justify-center">
+      <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-end sm:justify-center">
         <div className="flex flex-col gap-1">
           <label htmlFor="distance" className="text-sm font-black text-neo-dark uppercase">
             {t('input.distance')}
@@ -24,7 +24,7 @@ export function InputForm({ params, setParams }: InputFormProps) {
             id="distance"
             value={params.d ?? ''}
             onChange={(e) => setParams({ d: e.target.value || null })}
-            className={neoInput}
+            className={`${neoInput} w-full sm:w-auto`}
           >
             <option value="">{t('input.selectDistance')}</option>
             {DISTANCES.map((d) => (
@@ -45,7 +45,7 @@ export function InputForm({ params, setParams }: InputFormProps) {
             value={params.t ?? ''}
             onChange={(e) => setParams({ t: e.target.value || null })}
             placeholder={t('input.timePlaceholder')}
-            className={`${neoInput} w-44`}
+            className={`${neoInput} w-full sm:w-44`}
           />
         </div>
 
@@ -61,7 +61,7 @@ export function InputForm({ params, setParams }: InputFormProps) {
             value={params.a ?? ''}
             onChange={(e) => setParams({ a: e.target.value || null })}
             placeholder={t('input.age')}
-            className={`${neoInput} w-20`}
+            className={`${neoInput} w-full sm:w-20`}
           />
         </div>
 

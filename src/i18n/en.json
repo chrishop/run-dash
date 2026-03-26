@@ -20,7 +20,7 @@
   },
   "vdot": {
     "title": "VDOT",
-    "outOfRange": "Time is outside the VDOT table range (30.0\u201385.0)"
+    "outOfRange": "Time is outside the VDOT table range (10.0\u201385.0)"
   },
   "raceTimes": {
     "title": "Estimated Race Times",
@@ -75,7 +75,7 @@
     "yAxisLabel": "% of runners slower"
   },
   "warnings": {
-    "vdotTooSlow": "Your time is outside the supported range. Results are shown for VDOT 30 (the slowest supported value).",
+    "vdotTooSlow": "Your time is outside the supported range. Results are shown for VDOT 10 (the slowest supported value).",
     "vdotTooFast": "Your time is outside the supported range. Results are shown for VDOT 85 (the fastest supported value).",
     "ageGradingSuppressed": "Your time appears to be faster than the age-graded world standard. Age grading results are not shown."
   },

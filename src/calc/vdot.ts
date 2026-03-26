@@ -2,7 +2,7 @@ import { getAllEntries, vdotKeys } from '../data/vdotTable'
 
 /**
  * Check whether a time is outside the VDOT table range for a given distance.
- * Returns 'tooSlow' if slower than VDOT 30, 'tooFast' if faster than VDOT 85
+ * Returns 'tooSlow' if slower than VDOT 10, 'tooFast' if faster than VDOT 85
  * (including timeSecs = 0), or null if in range.
  */
 export function isTimeOutOfVdotRange(
