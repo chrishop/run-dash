@@ -30,6 +30,22 @@ The percentile 100% cap is fixed in `FinishingTimePercentileCard.tsx` since it i
 
 ## What Changes
 
+### 0. `src/calc/ageGrading.ts` + `src/components/AgeGrading.tsx`
+The `AgeGradingResult` type currently returns `percentage`, `benchmarkKey`, and `benchmarkColor`. Only `percentage` is ever used — it feeds into `getAgeComparisonTable`. `AgeGrading.tsx` is never rendered anywhere in the app.
+
+- Remove `benchmarkKey`, `benchmarkColor` from `AgeGradingResult`
+- Remove the `BENCHMARKS` array and `getBenchmark` function from `ageGrading.ts`
+- Delete `src/components/AgeGrading.tsx` entirely
+- Update `ageGrading.test.ts` to remove all benchmark-related assertions
+
+`getAgeGrading` becomes:
+```typescript
+export interface AgeGradingResult {
+  percentage: number
+}
+export function getAgeGrading(...): AgeGradingResult | null
+```
+
 ### 1. `src/data/distances.ts`
 Remove the `1500m` and `1mi` entries from the `DISTANCES` array. After this change, supported distances are: **5K, 10K, Half Marathon, Marathon**. All four have both age grading data and percentile data, so no "not available" edge cases remain.
 
@@ -99,7 +115,7 @@ Korean translations use the same structure. Note: Korean translations should be 
 - `src/utils/__tests__/percentile.test.ts` — the existing BUG test for 100% percentile stays as-is (it documents raw CDF math). A new test is added in `FinishingTimePercentileCard.test.tsx` asserting the displayed value is capped at 99.9.
 
 ### Tests that stay unchanged (pure calc behavior):
-- `ageGrading.test.ts` — Infinity and >100% tests remain; they document correct raw math.
+- `ageGrading.test.ts` — Infinity and >100% tests remain; they document correct raw math. Remove all `benchmarkKey`/`benchmarkColor` assertions — these fields are being deleted.
 - `ageComparison.test.ts` — Infinity/division-by-zero tests remain.
 
 ### New tests:
