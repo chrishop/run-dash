@@ -4,7 +4,6 @@ import { DISTANCES, getDistanceById } from '../../data/distances'
 import type { Distance } from '../../data/distances'
 
 const dist5k = getDistanceById('5k')!
-const distMarathon = getDistanceById('mar')!
 
 // Mock distance with no ageGradeKey (1500m was removed from DISTANCES)
 const distNoAgeGrade: Distance = {

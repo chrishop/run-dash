@@ -60,7 +60,18 @@ export function ResultsPanel({ results, onUnitsChange }: ResultsPanelProps) {
     )
   }
 
-  const { distance, timeSecs, vdot, raceTimes, trainingPaces, ageComparison, userAge, gender, units, warnings } = results
+  const {
+    distance,
+    timeSecs,
+    vdot,
+    raceTimes,
+    trainingPaces,
+    ageComparison,
+    userAge,
+    gender,
+    units,
+    warnings,
+  } = results
 
   return (
     <div className="mt-8 space-y-6">

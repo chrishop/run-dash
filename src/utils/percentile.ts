@@ -1,7 +1,9 @@
 // Approximation of the standard normal CDF using the error function
 function erf(x: number): number {
   const t = 1 / (1 + 0.3275911 * Math.abs(x))
-  const poly = t * (0.254829592 + t * (-0.284496736 + t * (1.421413741 + t * (-1.453152027 + t * 1.061405429))))
+  const poly =
+    t *
+    (0.254829592 + t * (-0.284496736 + t * (1.421413741 + t * (-1.453152027 + t * 1.061405429))))
   const result = 1 - poly * Math.exp(-x * x)
   return x >= 0 ? result : -result
 }
@@ -23,7 +25,7 @@ export function logNormalCDF(tSecs: number, mu: number, sigma: number): number {
 export function generateCDFCurve(
   mu: number,
   sigma: number,
-  points = 120
+  points = 120,
 ): { timeSecs: number; percentile: number }[] {
   // Inverse normal: x = mu + sigma * z, covering z from -2.576 (p0.5) to +2.576 (p99.5)
   const zMin = -2.576

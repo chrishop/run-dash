@@ -25,9 +25,7 @@ export function UnifiedTrainingCard({
     <div className="bg-white border-3 border-neo-dark rounded-xl p-6 shadow-[6px_6px_0px_0px_#1A1A2E]">
       {/* Header with Units Toggle */}
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-lg font-black text-neo-dark uppercase">
-          {t('units.title')}
-        </h2>
+        <h2 className="text-lg font-black text-neo-dark uppercase">{t('units.title')}</h2>
         <div className="flex">
           <button
             type="button"

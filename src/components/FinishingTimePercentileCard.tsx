@@ -71,21 +71,34 @@ export function FinishingTimePercentileCard({
   const { t } = useTranslation()
 
   const cdfKey = DISTANCE_ID_MAP[distanceId]
-  if (!cdfKey) return null
-
-  const params = cdfParams.distances[cdfKey]
+  const params = cdfKey ? cdfParams.distances[cdfKey] : null
 
   // "faster than X.X%" = 1 - CDF(t), capped at 99.9 to avoid showing 100%
-  const overallPct = Math.min(Math.floor((1 - logNormalCDF(timeSecs, params.overall.mu, params.overall.sigma)) * 1000) / 10, 99.9)
-  const genderPct =
-    gender === 'm'
-      ? Math.min(Math.floor((1 - logNormalCDF(timeSecs, params.male.mu, params.male.sigma)) * 1000) / 10, 99.9)
+  const overallPct = params
+    ? Math.min(
+        Math.floor((1 - logNormalCDF(timeSecs, params.overall.mu, params.overall.sigma)) * 1000) /
+          10,
+        99.9,
+      )
+    : null
+  const genderPct = params
+    ? gender === 'm'
+      ? Math.min(
+          Math.floor((1 - logNormalCDF(timeSecs, params.male.mu, params.male.sigma)) * 1000) / 10,
+          99.9,
+        )
       : gender === 'f'
-        ? Math.min(Math.floor((1 - logNormalCDF(timeSecs, params.female.mu, params.female.sigma)) * 1000) / 10, 99.9)
+        ? Math.min(
+            Math.floor((1 - logNormalCDF(timeSecs, params.female.mu, params.female.sigma)) * 1000) /
+              10,
+            99.9,
+          )
         : null
+    : null
 
   // Generate curve data
   const { chartData, xDomain } = useMemo(() => {
+    if (!params) return { chartData: [], xDomain: [0, 1] as [number, number] }
     const overallCurve = generateCDFCurve(params.overall.mu, params.overall.sigma)
 
     // Get gender parameters if available
@@ -93,7 +106,8 @@ export function FinishingTimePercentileCard({
 
     // Evaluate both distributions at the SAME time points (from overall curve)
     const data = overallCurve.map((pt) => {
-      const overallPercentile = Math.floor(logNormalCDF(pt.timeSecs, params.overall.mu, params.overall.sigma) * 1000) / 10
+      const overallPercentile =
+        Math.floor(logNormalCDF(pt.timeSecs, params.overall.mu, params.overall.sigma) * 1000) / 10
       const genderPercentile = genderParams
         ? Math.floor(logNormalCDF(pt.timeSecs, genderParams.mu, genderParams.sigma) * 1000) / 10
         : null
@@ -129,7 +143,14 @@ export function FinishingTimePercentileCard({
     return ticks
   }, [xDomain])
 
-  const genderLabel = gender === 'm' ? t('percentile.male').toLowerCase() : gender === 'f' ? t('percentile.female').toLowerCase() : null
+  const genderLabel =
+    gender === 'm'
+      ? t('percentile.male').toLowerCase()
+      : gender === 'f'
+        ? t('percentile.female').toLowerCase()
+        : null
+
+  if (!params || overallPct === null) return null
 
   return (
     <div className="bg-indigo-600 border-3 border-neo-dark rounded-xl p-6 shadow-[6px_6px_0px_0px_#1A1A2E]">
@@ -139,7 +160,11 @@ export function FinishingTimePercentileCard({
       </p>
       {genderPct !== null && genderLabel && (
         <p className="text-base font-bold text-white/80 mb-4">
-          {t('percentile.fasterThanGender', { pct: genderPct, gender: genderLabel, distance: distanceLabel })}
+          {t('percentile.fasterThanGender', {
+            pct: genderPct,
+            gender: genderLabel,
+            distance: distanceLabel,
+          })}
         </p>
       )}
       {genderPct === null && <div className="mb-4" />}

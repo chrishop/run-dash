@@ -64,11 +64,16 @@ export function AgeComparisonCard({ rows, userAge, distanceId }: AgeComparisonCa
     }))
 
   // Compute Y-axis domain with a bit of padding
-  const allTimes = rows.flatMap((r) => [r.maleTimeSecs, r.femaleTimeSecs]).filter((v): v is number => v !== null)
+  const allTimes = rows
+    .flatMap((r) => [r.maleTimeSecs, r.femaleTimeSecs])
+    .filter((v): v is number => v !== null)
   const minTime = Math.min(...allTimes)
   const maxTime = Math.max(...allTimes)
   const padding = (maxTime - minTime) * 0.08
-  const yDomain: [number, number] = [Math.max(0, Math.floor(minTime - padding)), Math.ceil(maxTime + padding)]
+  const yDomain: [number, number] = [
+    Math.max(0, Math.floor(minTime - padding)),
+    Math.ceil(maxTime + padding),
+  ]
 
   // Y-axis ticks — 5 evenly spaced
   const tickCount = 5
@@ -97,7 +102,13 @@ export function AgeComparisonCard({ rows, userAge, distanceId }: AgeComparisonCa
             tick={{ fill: 'rgba(255,255,255,0.8)', fontWeight: 700, fontSize: 12 }}
             axisLine={{ stroke: 'rgba(255,255,255,0.4)' }}
             tickLine={{ stroke: 'rgba(255,255,255,0.4)' }}
-            label={{ value: t('ageComparison.age'), position: 'insideBottom', offset: -2, fill: 'rgba(255,255,255,0.6)', fontSize: 11 }}
+            label={{
+              value: t('ageComparison.age'),
+              position: 'insideBottom',
+              offset: -2,
+              fill: 'rgba(255,255,255,0.6)',
+              fontSize: 11,
+            }}
           />
           <YAxis
             domain={yDomain}
@@ -109,16 +120,20 @@ export function AgeComparisonCard({ rows, userAge, distanceId }: AgeComparisonCa
             width={60}
           />
           <Tooltip content={<CustomTooltip />} />
-          <Legend
-            wrapperStyle={{ color: 'white', fontWeight: 700, fontSize: 13, paddingTop: 8 }}
-          />
+          <Legend wrapperStyle={{ color: 'white', fontWeight: 700, fontSize: 13, paddingTop: 8 }} />
           {highlightAge !== null && (
             <ReferenceLine
               x={highlightAge}
               stroke="#facc15"
               strokeWidth={2}
               strokeDasharray="5 3"
-              label={{ value: 'You', fill: '#facc15', fontWeight: 700, fontSize: 12, position: 'top' }}
+              label={{
+                value: 'You',
+                fill: '#facc15',
+                fontWeight: 700,
+                fontSize: 12,
+                position: 'top',
+              }}
             />
           )}
           <Line

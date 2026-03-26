@@ -21,7 +21,9 @@ vi.mock('react-i18next', () => ({
 
 // Mock recharts to avoid rendering issues in tests
 vi.mock('recharts', () => ({
-  LineChart: ({ children }: { children: React.ReactNode }) => <div data-testid="line-chart">{children}</div>,
+  LineChart: ({ children }: { children: React.ReactNode }) => (
+    <div data-testid="line-chart">{children}</div>
+  ),
   Line: () => <div />,
   XAxis: () => <div />,
   YAxis: () => <div />,
@@ -70,7 +72,12 @@ describe('ResultsPanel', () => {
   })
 
   it('shows "out of range" when VDOT is null', () => {
-    render(<ResultsPanel results={makeResults({ vdot: null, raceTimes: null, trainingPaces: null })} onUnitsChange={noop} />)
+    render(
+      <ResultsPanel
+        results={makeResults({ vdot: null, raceTimes: null, trainingPaces: null })}
+        onUnitsChange={noop}
+      />,
+    )
     expect(screen.getByText('vdot.outOfRange')).toBeInTheDocument()
   })
 
@@ -129,7 +136,12 @@ describe('ResultsPanel', () => {
 
   it('shows ageGradingSuppressed warning', () => {
     const warnings: Warning[] = [{ type: 'ageGradingSuppressed' }]
-    render(<ResultsPanel results={makeResults({ warnings, ageComparison: null })} onUnitsChange={noop} />)
+    render(
+      <ResultsPanel
+        results={makeResults({ warnings, ageComparison: null })}
+        onUnitsChange={noop}
+      />,
+    )
     expect(screen.getByText('warnings.ageGradingSuppressed')).toBeInTheDocument()
     expect(screen.queryByText('ageComparison.title')).not.toBeInTheDocument()
   })
@@ -139,7 +151,12 @@ describe('ResultsPanel', () => {
       { type: 'vdotOutOfRange', direction: 'tooFast' },
       { type: 'ageGradingSuppressed' },
     ]
-    render(<ResultsPanel results={makeResults({ warnings, ageComparison: null })} onUnitsChange={noop} />)
+    render(
+      <ResultsPanel
+        results={makeResults({ warnings, ageComparison: null })}
+        onUnitsChange={noop}
+      />,
+    )
     expect(screen.getByText('warnings.vdotTooFast')).toBeInTheDocument()
     expect(screen.getByText('warnings.ageGradingSuppressed')).toBeInTheDocument()
   })
