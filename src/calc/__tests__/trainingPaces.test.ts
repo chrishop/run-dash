@@ -83,7 +83,7 @@ describe('getTrainingPaces', () => {
 
   // Invalid VDOT
   it('returns empty paces and intervals for invalid VDOT', () => {
-    const result = getTrainingPaces(29.9)
+    const result = getTrainingPaces(9.9)
     expect(result.paces).toEqual([])
     expect(result.intervals).toEqual([])
   })

@@ -73,8 +73,8 @@ describe('getRaceTimes', () => {
   })
 
   // Invalid VDOT — outside table range
-  it('returns empty array for VDOT below range (29.9)', () => {
-    expect(getRaceTimes(29.9)).toEqual([])
+  it('returns empty array for VDOT below range (9.9)', () => {
+    expect(getRaceTimes(9.9)).toEqual([])
   })
 
   it('returns empty array for VDOT above range (85.1)', () => {

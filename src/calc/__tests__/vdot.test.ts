@@ -32,8 +32,8 @@ describe('lookupVdot', () => {
   })
 
   // Boundary values
-  it('returns 30.0 for exact VDOT-30 5K time (1841s)', () => {
-    const vdot = lookupVdot('5k', 1841)
+  it('returns 30.0 for exact VDOT-30 5K time (1840s)', () => {
+    const vdot = lookupVdot('5k', 1840)
     expect(vdot).toBe(30)
   })
 
@@ -43,9 +43,9 @@ describe('lookupVdot', () => {
   })
 
   // Clamping behavior (edge cases — no warning to user)
-  it('clamps to 30.0 for times slower than VDOT 30', () => {
-    const vdot = lookupVdot('5k', 2000)
-    expect(vdot).toBe(30)
+  it('clamps to 10.0 for times slower than VDOT 10', () => {
+    const vdot = lookupVdot('5k', 5000)
+    expect(vdot).toBe(10)
   })
 
   it('clamps to 85.0 for times faster than VDOT 85', () => {
@@ -76,7 +76,7 @@ describe('lookupVdot', () => {
       // Use a mid-range time that should work for all distances
       const vdot = lookupVdot(key, 1200)
       expect(vdot).not.toBeNull()
-      expect(vdot!).toBeGreaterThanOrEqual(30)
+      expect(vdot!).toBeGreaterThanOrEqual(10)
       expect(vdot!).toBeLessThanOrEqual(85)
     },
   )
@@ -87,12 +87,13 @@ describe('isTimeOutOfVdotRange', () => {
     expect(isTimeOutOfVdotRange('5k', 1200)).toBeNull() // ~20:00 — valid
   })
 
-  it('returns tooSlow for a time slower than VDOT 30', () => {
-    expect(isTimeOutOfVdotRange('5k', 2000)).toBe('tooSlow')
+  it('returns tooSlow for a time slower than VDOT 10', () => {
+    expect(isTimeOutOfVdotRange('5k', 5000)).toBe('tooSlow')
   })
 
-  it('returns tooSlow for a time exactly at the VDOT 30 boundary', () => {
-    expect(isTimeOutOfVdotRange('5k', 1841)).toBe('tooSlow') // VDOT 30 = 1841s
+  it('returns tooSlow for a very slow 5k time at VDOT 10 boundary', () => {
+    // VDOT 10 5k is ~4256s; times >= that are tooSlow
+    expect(isTimeOutOfVdotRange('5k', 4300)).toBe('tooSlow')
   })
 
   it('returns tooFast for a time faster than VDOT 85', () => {
@@ -109,7 +110,7 @@ describe('isTimeOutOfVdotRange', () => {
 
   it('works for marathon distance', () => {
     expect(isTimeOutOfVdotRange('marathon', 10800)).toBeNull() // 3:00:00 — valid
-    expect(isTimeOutOfVdotRange('marathon', 20000)).toBe('tooSlow')
+    expect(isTimeOutOfVdotRange('marathon', 50000)).toBe('tooSlow')
     expect(isTimeOutOfVdotRange('marathon', 5000)).toBe('tooFast')
   })
 })

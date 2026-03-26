@@ -1,0 +1,310 @@
+{
+  "meta": {
+    "source": "Daniels' Running Formula, Table 5.1 and Table 5.2",
+    "notes": "Transcribed from book images. Race times in seconds. Training paces in sec/km and sec/mi. Dash entries omitted."
+  },
+  "race_times": {
+    "30": { "1500m": 510, "1_mile": 551, "3000m": 1076, "2_mile": 1159, "5k": 1840, "10k": 3826, "15k": 5894, "half_marathon": 8464, "marathon": 17357 },
+    "31": { "1500m": 495, "1_mile": 535, "3000m": 1047, "2_mile": 1128, "5k": 1791, "10k": 3723, "15k": 5736, "half_marathon": 8241, "marathon": 16917 },
+    "32": { "1500m": 482, "1_mile": 521, "3000m": 1019, "2_mile": 1098, "5k": 1745, "10k": 3626, "15k": 5587, "half_marathon": 8029, "marathon": 16499 },
+    "33": { "1500m": 469, "1_mile": 507, "3000m": 993, "2_mile": 1070, "5k": 1701, "10k": 3534, "15k": 5445, "half_marathon": 7827, "marathon": 16102 },
+    "34": { "1500m": 457, "1_mile": 494, "3000m": 969, "2_mile": 1044, "5k": 1659, "10k": 3446, "15k": 5310, "half_marathon": 7636, "marathon": 15723 },
+    "35": { "1500m": 445, "1_mile": 481, "3000m": 945, "2_mile": 1018, "5k": 1620, "10k": 3363, "15k": 5182, "half_marathon": 7453, "marathon": 15363 },
+    "36": { "1500m": 434, "1_mile": 469, "3000m": 923, "2_mile": 994, "5k": 1582, "10k": 3284, "15k": 5060, "half_marathon": 7279, "marathon": 15019 },
+    "37": { "1500m": 424, "1_mile": 458, "3000m": 901, "2_mile": 971, "5k": 1546, "10k": 3209, "15k": 4944, "half_marathon": 7114, "marathon": 14690 },
+    "38": { "1500m": 414, "1_mile": 447, "3000m": 881, "2_mile": 949, "5k": 1512, "10k": 3137, "15k": 4833, "half_marathon": 6955, "marathon": 14375 },
+    "39": { "1500m": 404, "1_mile": 437, "3000m": 861, "2_mile": 929, "5k": 1479, "10k": 3069, "15k": 4727, "half_marathon": 6804, "marathon": 14074 },
+    "40": { "1500m": 395, "1_mile": 427, "3000m": 843, "2_mile": 908, "5k": 1448, "10k": 3003, "15k": 4626, "half_marathon": 6659, "marathon": 13785 },
+    "41": { "1500m": 387, "1_mile": 418, "3000m": 825, "2_mile": 889, "5k": 1418, "10k": 2941, "15k": 4529, "half_marathon": 6520, "marathon": 13509 },
+    "42": { "1500m": 379, "1_mile": 409, "3000m": 808, "2_mile": 871, "5k": 1389, "10k": 2881, "15k": 4436, "half_marathon": 6387, "marathon": 13243 },
+    "43": { "1500m": 371, "1_mile": 401, "3000m": 791, "2_mile": 853, "5k": 1361, "10k": 2824, "15k": 4347, "half_marathon": 6260, "marathon": 12988 },
+    "44": { "1500m": 363, "1_mile": 392, "3000m": 775, "2_mile": 836, "5k": 1335, "10k": 2769, "15k": 4262, "half_marathon": 6137, "marathon": 12743 },
+    "45": { "1500m": 356, "1_mile": 385, "3000m": 760, "2_mile": 820, "5k": 1310, "10k": 2716, "15k": 4180, "half_marathon": 6020, "marathon": 12506 },
+    "46": { "1500m": 349, "1_mile": 377, "3000m": 746, "2_mile": 805, "5k": 1285, "10k": 2665, "15k": 4102, "half_marathon": 5907, "marathon": 12279 },
+    "47": { "1500m": 342, "1_mile": 370, "3000m": 732, "2_mile": 790, "5k": 1262, "10k": 2616, "15k": 4026, "half_marathon": 5798, "marathon": 12060 },
+    "48": { "1500m": 336, "1_mile": 363, "3000m": 718, "2_mile": 775, "5k": 1239, "10k": 2570, "15k": 3953, "half_marathon": 5693, "marathon": 11849 },
+    "49": { "1500m": 330, "1_mile": 356, "3000m": 705, "2_mile": 761, "5k": 1218, "10k": 2524, "15k": 3884, "half_marathon": 5592, "marathon": 11646 },
+    "50": { "1500m": 324, "1_mile": 350, "3000m": 693, "2_mile": 748, "5k": 1197, "10k": 2481, "15k": 3816, "half_marathon": 5495, "marathon": 11449 },
+    "51": { "1500m": 318, "1_mile": 344, "3000m": 681, "2_mile": 735, "5k": 1176, "10k": 2439, "15k": 3751, "half_marathon": 5402, "marathon": 11259 },
+    "52": { "1500m": 313, "1_mile": 338, "3000m": 669, "2_mile": 722, "5k": 1157, "10k": 2399, "15k": 3689, "half_marathon": 5311, "marathon": 11076 },
+    "53": { "1500m": 307, "1_mile": 332, "3000m": 658, "2_mile": 710, "5k": 1138, "10k": 2360, "15k": 3628, "half_marathon": 5224, "marathon": 10899 },
+    "54": { "1500m": 302, "1_mile": 327, "3000m": 647, "2_mile": 699, "5k": 1120, "10k": 2322, "15k": 3570, "half_marathon": 5140, "marathon": 10727 },
+    "55": { "1500m": 297, "1_mile": 321, "3000m": 637, "2_mile": 688, "5k": 1102, "10k": 2286, "15k": 3513, "half_marathon": 5058, "marathon": 10561 },
+    "56": { "1500m": 293, "1_mile": 316, "3000m": 627, "2_mile": 677, "5k": 1085, "10k": 2251, "15k": 3459, "half_marathon": 4980, "marathon": 10400 },
+    "57": { "1500m": 288, "1_mile": 311, "3000m": 617, "2_mile": 666, "5k": 1069, "10k": 2217, "15k": 3406, "half_marathon": 4903, "marathon": 10245 },
+    "58": { "1500m": 284, "1_mile": 306, "3000m": 608, "2_mile": 656, "5k": 1053, "10k": 2184, "15k": 3355, "half_marathon": 4830, "marathon": 10094 },
+    "59": { "1500m": 279, "1_mile": 302, "3000m": 598, "2_mile": 646, "5k": 1037, "10k": 2152, "15k": 3306, "half_marathon": 4758, "marathon": 9947 },
+    "60": { "1500m": 275, "1_mile": 297, "3000m": 590, "2_mile": 637, "5k": 1023, "10k": 2122, "15k": 3258, "half_marathon": 4689, "marathon": 9805 },
+    "61": { "1500m": 271, "1_mile": 293, "3000m": 581, "2_mile": 627, "5k": 1008, "10k": 2092, "15k": 3212, "half_marathon": 4622, "marathon": 9668 },
+    "62": { "1500m": 267, "1_mile": 289, "3000m": 573, "2_mile": 618, "5k": 994, "10k": 2063, "15k": 3167, "half_marathon": 4557, "marathon": 9534 },
+    "63": { "1500m": 264, "1_mile": 285, "3000m": 565, "2_mile": 610, "5k": 980, "10k": 2035, "15k": 3123, "half_marathon": 4494, "marathon": 9404 },
+    "64": { "1500m": 260, "1_mile": 281, "3000m": 557, "2_mile": 601, "5k": 967, "10k": 2008, "15k": 3081, "half_marathon": 4433, "marathon": 9278 },
+    "65": { "1500m": 256, "1_mile": 277, "3000m": 549, "2_mile": 593, "5k": 954, "10k": 1981, "15k": 3040, "half_marathon": 4373, "marathon": 9155 }
+  },
+  "training_paces": {
+    "30": {
+      "easy_slow": { "sec_per_km": 447, "sec_per_mi": 720 },
+      "easy_fast": { "sec_per_km": 494, "sec_per_mi": 796 },
+      "marathon": { "sec_per_km": 423, "sec_per_mi": 681 },
+      "threshold": { "sec_per_km": 384, "sec_per_mi": 618, "sec_per_400m": 153 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 142 },
+      "repetition": { "sec_per_200m": 67, "sec_per_300m": 101, "sec_per_400m": null }
+    },
+    "31": {
+      "easy_slow": { "sec_per_km": 436, "sec_per_mi": 701 },
+      "easy_fast": { "sec_per_km": 482, "sec_per_mi": 777 },
+      "marathon": { "sec_per_km": 412, "sec_per_mi": 662 },
+      "threshold": { "sec_per_km": 374, "sec_per_mi": 602, "sec_per_400m": 150 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 138 },
+      "repetition": { "sec_per_200m": 65, "sec_per_300m": 98, "sec_per_400m": null }
+    },
+    "32": {
+      "easy_slow": { "sec_per_km": 425, "sec_per_mi": 684 },
+      "easy_fast": { "sec_per_km": 472, "sec_per_mi": 759 },
+      "marathon": { "sec_per_km": 400, "sec_per_mi": 644 },
+      "threshold": { "sec_per_km": 365, "sec_per_mi": 587, "sec_per_400m": 146 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 134 },
+      "repetition": { "sec_per_200m": 63, "sec_per_300m": 95, "sec_per_400m": null }
+    },
+    "33": {
+      "easy_slow": { "sec_per_km": 415, "sec_per_mi": 667 },
+      "easy_fast": { "sec_per_km": 461, "sec_per_mi": 741 },
+      "marathon": { "sec_per_km": 390, "sec_per_mi": 627 },
+      "threshold": { "sec_per_km": 356, "sec_per_mi": 573, "sec_per_400m": 143 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 131 },
+      "repetition": { "sec_per_200m": 61, "sec_per_300m": 92, "sec_per_400m": null }
+    },
+    "34": {
+      "easy_slow": { "sec_per_km": 405, "sec_per_mi": 652 },
+      "easy_fast": { "sec_per_km": 451, "sec_per_mi": 725 },
+      "marathon": { "sec_per_km": 380, "sec_per_mi": 611 },
+      "threshold": { "sec_per_km": 348, "sec_per_mi": 560, "sec_per_400m": 139 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 128 },
+      "repetition": { "sec_per_200m": 60, "sec_per_300m": 90, "sec_per_400m": 120 }
+    },
+    "35": {
+      "easy_slow": { "sec_per_km": 396, "sec_per_mi": 637 },
+      "easy_fast": { "sec_per_km": 441, "sec_per_mi": 709 },
+      "marathon": { "sec_per_km": 370, "sec_per_mi": 596 },
+      "threshold": { "sec_per_km": 340, "sec_per_mi": 547, "sec_per_400m": 136 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 125 },
+      "repetition": { "sec_per_200m": 58, "sec_per_300m": 87, "sec_per_400m": 117 }
+    },
+    "36": {
+      "easy_slow": { "sec_per_km": 387, "sec_per_mi": 623 },
+      "easy_fast": { "sec_per_km": 431, "sec_per_mi": 694 },
+      "marathon": { "sec_per_km": 361, "sec_per_mi": 581 },
+      "threshold": { "sec_per_km": 333, "sec_per_mi": 535, "sec_per_400m": 133 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 122 },
+      "repetition": { "sec_per_200m": 57, "sec_per_300m": 85, "sec_per_400m": 114 }
+    },
+    "37": {
+      "easy_slow": { "sec_per_km": 379, "sec_per_mi": 609 },
+      "easy_fast": { "sec_per_km": 422, "sec_per_mi": 680 },
+      "marathon": { "sec_per_km": 353, "sec_per_mi": 568 },
+      "threshold": { "sec_per_km": 326, "sec_per_mi": 524, "sec_per_400m": 130 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 119 },
+      "repetition": { "sec_per_200m": 56, "sec_per_300m": 83, "sec_per_400m": 111 }
+    },
+    "38": {
+      "easy_slow": { "sec_per_km": 371, "sec_per_mi": 596 },
+      "easy_fast": { "sec_per_km": 414, "sec_per_mi": 666 },
+      "marathon": { "sec_per_km": 345, "sec_per_mi": 555 },
+      "threshold": { "sec_per_km": 319, "sec_per_mi": 513, "sec_per_400m": 127 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 116 },
+      "repetition": { "sec_per_200m": 54, "sec_per_300m": 81, "sec_per_400m": 108 }
+    },
+    "39": {
+      "easy_slow": { "sec_per_km": 363, "sec_per_mi": 584 },
+      "easy_fast": { "sec_per_km": 406, "sec_per_mi": 653 },
+      "marathon": { "sec_per_km": 337, "sec_per_mi": 542 },
+      "threshold": { "sec_per_km": 312, "sec_per_mi": 502, "sec_per_400m": 125 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 114 },
+      "repetition": { "sec_per_200m": 53, "sec_per_300m": 80, "sec_per_400m": 106 }
+    },
+    "40": {
+      "easy_slow": { "sec_per_km": 356, "sec_per_mi": 572 },
+      "easy_fast": { "sec_per_km": 398, "sec_per_mi": 641 },
+      "marathon": { "sec_per_km": 329, "sec_per_mi": 530 },
+      "threshold": { "sec_per_km": 306, "sec_per_mi": 492, "sec_per_400m": 122 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 112 },
+      "repetition": { "sec_per_200m": 52, "sec_per_300m": 78, "sec_per_400m": 104 }
+    },
+    "41": {
+      "easy_slow": { "sec_per_km": 349, "sec_per_mi": 561 },
+      "easy_fast": { "sec_per_km": 391, "sec_per_mi": 628 },
+      "marathon": { "sec_per_km": 322, "sec_per_mi": 519 },
+      "threshold": { "sec_per_km": 300, "sec_per_mi": 482, "sec_per_400m": 120 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 110 },
+      "repetition": { "sec_per_200m": 51, "sec_per_300m": 77, "sec_per_400m": 102 }
+    },
+    "42": {
+      "easy_slow": { "sec_per_km": 342, "sec_per_mi": 550 },
+      "easy_fast": { "sec_per_km": 383, "sec_per_mi": 617 },
+      "marathon": { "sec_per_km": 316, "sec_per_mi": 508 },
+      "threshold": { "sec_per_km": 294, "sec_per_mi": 472, "sec_per_400m": 117 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 108 },
+      "repetition": { "sec_per_200m": 50, "sec_per_300m": 75, "sec_per_400m": 100 }
+    },
+    "43": {
+      "easy_slow": { "sec_per_km": 335, "sec_per_mi": 540 },
+      "easy_fast": { "sec_per_km": 376, "sec_per_mi": 605 },
+      "marathon": { "sec_per_km": 309, "sec_per_mi": 497 },
+      "threshold": { "sec_per_km": 289, "sec_per_mi": 462, "sec_per_400m": 115 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 106 },
+      "repetition": { "sec_per_200m": 49, "sec_per_300m": 74, "sec_per_400m": 98 }
+    },
+    "44": {
+      "easy_slow": { "sec_per_km": 329, "sec_per_mi": 530 },
+      "easy_fast": { "sec_per_km": 370, "sec_per_mi": 595 },
+      "marathon": { "sec_per_km": 303, "sec_per_mi": 487 },
+      "threshold": { "sec_per_km": 283, "sec_per_mi": 453, "sec_per_400m": 113 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 104 },
+      "repetition": { "sec_per_200m": 48, "sec_per_300m": 72, "sec_per_400m": 96 }
+    },
+    "45": {
+      "easy_slow": { "sec_per_km": 323, "sec_per_mi": 520 },
+      "easy_fast": { "sec_per_km": 363, "sec_per_mi": 584 },
+      "marathon": { "sec_per_km": 297, "sec_per_mi": 478 },
+      "threshold": { "sec_per_km": 278, "sec_per_mi": 445, "sec_per_400m": 111 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 102 },
+      "repetition": { "sec_per_200m": 47, "sec_per_300m": 71, "sec_per_400m": 94 }
+    },
+    "46": {
+      "easy_slow": { "sec_per_km": 317, "sec_per_mi": 511 },
+      "easy_fast": { "sec_per_km": 357, "sec_per_mi": 574 },
+      "marathon": { "sec_per_km": 291, "sec_per_mi": 469 },
+      "threshold": { "sec_per_km": 273, "sec_per_mi": 437, "sec_per_400m": 109 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 100 },
+      "repetition": { "sec_per_200m": 46, "sec_per_300m": 69, "sec_per_400m": 92 }
+    },
+    "47": {
+      "easy_slow": { "sec_per_km": 312, "sec_per_mi": 502 },
+      "easy_fast": { "sec_per_km": 351, "sec_per_mi": 565 },
+      "marathon": { "sec_per_km": 286, "sec_per_mi": 460 },
+      "threshold": { "sec_per_km": 269, "sec_per_mi": 429, "sec_per_400m": 107 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 98 },
+      "repetition": { "sec_per_200m": 45, "sec_per_300m": 68, "sec_per_400m": 90 }
+    },
+    "48": {
+      "easy_slow": { "sec_per_km": 307, "sec_per_mi": 493 },
+      "easy_fast": { "sec_per_km": 345, "sec_per_mi": 555 },
+      "marathon": { "sec_per_km": 281, "sec_per_mi": 452 },
+      "threshold": { "sec_per_km": 264, "sec_per_mi": 422, "sec_per_400m": 105 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 96 },
+      "repetition": { "sec_per_200m": 44, "sec_per_300m": 67, "sec_per_400m": 89 }
+    },
+    "49": {
+      "easy_slow": { "sec_per_km": 301, "sec_per_mi": 485 },
+      "easy_fast": { "sec_per_km": 340, "sec_per_mi": 546 },
+      "marathon": { "sec_per_km": 276, "sec_per_mi": 444 },
+      "threshold": { "sec_per_km": 260, "sec_per_mi": 416, "sec_per_400m": 103 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 95 },
+      "repetition": { "sec_per_200m": 44, "sec_per_300m": 66, "sec_per_400m": 88 }
+    },
+    "50": {
+      "easy_slow": { "sec_per_km": 296, "sec_per_mi": 477 },
+      "easy_fast": { "sec_per_km": 334, "sec_per_mi": 538 },
+      "marathon": { "sec_per_km": 271, "sec_per_mi": 437 },
+      "threshold": { "sec_per_km": 255, "sec_per_mi": 410, "sec_per_400m": 101 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 93 },
+      "repetition": { "sec_per_200m": 43, "sec_per_300m": 65, "sec_per_400m": 87 }
+    },
+    "51": {
+      "easy_slow": { "sec_per_km": 292, "sec_per_mi": 469 },
+      "easy_fast": { "sec_per_km": 329, "sec_per_mi": 529 },
+      "marathon": { "sec_per_km": 267, "sec_per_mi": 429 },
+      "threshold": { "sec_per_km": 251, "sec_per_mi": 404, "sec_per_400m": 100 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 92 },
+      "repetition": { "sec_per_200m": 43, "sec_per_300m": 64, "sec_per_400m": 86 }
+    },
+    "52": {
+      "easy_slow": { "sec_per_km": 287, "sec_per_mi": 462 },
+      "easy_fast": { "sec_per_km": 324, "sec_per_mi": 521 },
+      "marathon": { "sec_per_km": 262, "sec_per_mi": 422 },
+      "threshold": { "sec_per_km": 247, "sec_per_mi": 398, "sec_per_400m": 98 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 91 },
+      "repetition": { "sec_per_200m": 42, "sec_per_300m": 63, "sec_per_400m": 84 }
+    },
+    "53": {
+      "easy_slow": { "sec_per_km": 283, "sec_per_mi": 455 },
+      "easy_fast": { "sec_per_km": 319, "sec_per_mi": 513 },
+      "marathon": { "sec_per_km": 258, "sec_per_mi": 416 },
+      "threshold": { "sec_per_km": 244, "sec_per_mi": 392, "sec_per_400m": 97 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 90 },
+      "repetition": { "sec_per_200m": 42, "sec_per_300m": 63, "sec_per_400m": 84 }
+    },
+    "54": {
+      "easy_slow": { "sec_per_km": 278, "sec_per_mi": 448 },
+      "easy_fast": { "sec_per_km": 314, "sec_per_mi": 506 },
+      "marathon": { "sec_per_km": 254, "sec_per_mi": 409 },
+      "threshold": { "sec_per_km": 240, "sec_per_mi": 386, "sec_per_400m": 95 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 88 },
+      "repetition": { "sec_per_200m": 41, "sec_per_300m": 62, "sec_per_400m": 82 }
+    },
+    "55": {
+      "easy_slow": { "sec_per_km": 274, "sec_per_mi": 441 },
+      "easy_fast": { "sec_per_km": 310, "sec_per_mi": 498 },
+      "marathon": { "sec_per_km": 250, "sec_per_mi": 403 },
+      "threshold": { "sec_per_km": 236, "sec_per_mi": 380, "sec_per_400m": 94 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 87 },
+      "repetition": { "sec_per_200m": 40, "sec_per_300m": 61, "sec_per_400m": 81 }
+    },
+    "56": {
+      "easy_slow": { "sec_per_km": 270, "sec_per_mi": 435 },
+      "easy_fast": { "sec_per_km": 305, "sec_per_mi": 491 },
+      "marathon": { "sec_per_km": 246, "sec_per_mi": 397 },
+      "threshold": { "sec_per_km": 233, "sec_per_mi": 375, "sec_per_400m": 93 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 86 },
+      "repetition": { "sec_per_200m": 40, "sec_per_300m": 60, "sec_per_400m": 80 }
+    },
+    "57": {
+      "easy_slow": { "sec_per_km": 266, "sec_per_mi": 428 },
+      "easy_fast": { "sec_per_km": 301, "sec_per_mi": 484 },
+      "marathon": { "sec_per_km": 243, "sec_per_mi": 391 },
+      "threshold": { "sec_per_km": 230, "sec_per_mi": 369, "sec_per_400m": 91 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 85 },
+      "repetition": { "sec_per_200m": 39, "sec_per_300m": 59, "sec_per_400m": 79 }
+    },
+    "58": {
+      "easy_slow": { "sec_per_km": 262, "sec_per_mi": 422 },
+      "easy_fast": { "sec_per_km": 297, "sec_per_mi": 478 },
+      "marathon": { "sec_per_km": 239, "sec_per_mi": 385 },
+      "threshold": { "sec_per_km": 226, "sec_per_mi": 364, "sec_per_400m": 90 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 83 },
+      "repetition": { "sec_per_200m": 38, "sec_per_300m": 58, "sec_per_400m": 77 }
+    },
+    "59": {
+      "easy_slow": { "sec_per_km": 259, "sec_per_mi": 416 },
+      "easy_fast": { "sec_per_km": 293, "sec_per_mi": 471 },
+      "marathon": { "sec_per_km": 236, "sec_per_mi": 379 },
+      "threshold": { "sec_per_km": 223, "sec_per_mi": 359, "sec_per_400m": 89 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 82 },
+      "repetition": { "sec_per_200m": 38, "sec_per_300m": 57, "sec_per_400m": 76 }
+    },
+    "60": {
+      "easy_slow": { "sec_per_km": 255, "sec_per_mi": 410 },
+      "easy_fast": { "sec_per_km": 289, "sec_per_mi": 465 },
+      "marathon": { "sec_per_km": 232, "sec_per_mi": 374 },
+      "threshold": { "sec_per_km": 220, "sec_per_mi": 354, "sec_per_400m": 88 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 81 },
+      "repetition": { "sec_per_200m": 37, "sec_per_300m": 56, "sec_per_400m": 75 }
+    },
+    "61": {
+      "easy_slow": { "sec_per_km": 251, "sec_per_mi": 405 },
+      "easy_fast": { "sec_per_km": 285, "sec_per_mi": 459 },
+      "marathon": { "sec_per_km": 229, "sec_per_mi": 369 },
+      "threshold": { "sec_per_km": 217, "sec_per_mi": 350, "sec_per_400m": 86 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 80 },
+      "repetition": { "sec_per_200m": 37, "sec_per_300m": 55, "sec_per_400m": 74 }
+    },
+    "62": {
+      "easy_slow": { "sec_per_km": 248, "sec_per_mi": 399 },
+      "easy_fast": { "sec_per_km": 281, "sec_per_mi": 453 },
+      "marathon": { "sec_per_km": 226, "sec_per_mi": 364 },
+      "threshold": { "sec_per_km": 214, "sec_per_mi": 345, "sec_per_400m": 85 },
+      "interval": { "sec_per_km": null, "sec_per_400m": 79 },
+      "repetition": { "sec_per_200m": 36, "sec_per_300m": 54, "sec_per_400m": 73 }
+    }
+  }
+}
