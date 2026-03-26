@@ -75,13 +75,13 @@ export function FinishingTimePercentileCard({
 
   const params = cdfParams.distances[cdfKey]
 
-  // "faster than X.X%" = 1 - CDF(t), floored to 1 decimal to avoid showing 100%
-  const overallPct = Math.floor((1 - logNormalCDF(timeSecs, params.overall.mu, params.overall.sigma)) * 1000) / 10
+  // "faster than X.X%" = 1 - CDF(t), capped at 99.9 to avoid showing 100%
+  const overallPct = Math.min(Math.floor((1 - logNormalCDF(timeSecs, params.overall.mu, params.overall.sigma)) * 1000) / 10, 99.9)
   const genderPct =
     gender === 'm'
-      ? Math.floor((1 - logNormalCDF(timeSecs, params.male.mu, params.male.sigma)) * 1000) / 10
+      ? Math.min(Math.floor((1 - logNormalCDF(timeSecs, params.male.mu, params.male.sigma)) * 1000) / 10, 99.9)
       : gender === 'f'
-        ? Math.floor((1 - logNormalCDF(timeSecs, params.female.mu, params.female.sigma)) * 1000) / 10
+        ? Math.min(Math.floor((1 - logNormalCDF(timeSecs, params.female.mu, params.female.sigma)) * 1000) / 10, 99.9)
         : null
 
   // Generate curve data

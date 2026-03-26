@@ -3,13 +3,14 @@ import { useTranslation } from 'react-i18next'
 import { useUrlParams } from './hooks/useUrlParams'
 import { getDistanceById } from './data/distances'
 import { parseTime } from './calc/timeUtils'
-import { lookupVdot } from './calc/vdot'
+import { lookupVdot, isTimeOutOfVdotRange } from './calc/vdot'
 import { getRaceTimes } from './calc/raceTimes'
 import { getTrainingPaces } from './calc/trainingPaces'
 import { getAgeGrading } from './calc/ageGrading'
 import { getAgeComparisonTable } from './calc/ageComparison'
 import { InputForm } from './components/InputForm'
 import { ResultsPanel } from './components/ResultsPanel'
+import type { Warning } from './types'
 
 function App() {
   const { t, i18n } = useTranslation()
@@ -27,14 +28,31 @@ function App() {
 
     if (!distance || timeSecs === null) return null
 
+    // Zero time is not meaningful input — treat as no input
+    if (timeSecs === 0) return null
+
+    const warnings: Warning[] = []
+
+    const vdotOutOfRange = isTimeOutOfVdotRange(distance.vdotKey, timeSecs)
+    if (vdotOutOfRange !== null) {
+      warnings.push({ type: 'vdotOutOfRange', direction: vdotOutOfRange })
+    }
+
     const vdot = lookupVdot(distance.vdotKey, timeSecs)
     const raceTimes = vdot !== null ? getRaceTimes(vdot) : null
     const trainingPaces = vdot !== null ? getTrainingPaces(vdot) : null
 
-    const ageGrading =
+    let ageGrading =
       params.a !== null && params.g !== null
         ? getAgeGrading(distance, timeSecs, params.a, params.g)
         : null
+
+    // Suppress age grading if percentage exceeds 100 (faster than world standard)
+    // or is not finite (defensive fallback)
+    if (ageGrading !== null && (ageGrading.percentage > 100 || !isFinite(ageGrading.percentage))) {
+      warnings.push({ type: 'ageGradingSuppressed' })
+      ageGrading = null
+    }
 
     const ageComparison =
       ageGrading !== null && distance.ageGradeKey !== null
@@ -51,6 +69,7 @@ function App() {
       userAge: params.a,
       gender: params.g,
       units: params.units,
+      warnings,
     }
   }, [params.d, params.t, params.a, params.g, params.units])
 

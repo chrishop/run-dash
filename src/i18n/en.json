@@ -13,8 +13,6 @@
     "female": "Female"
   },
   "distances": {
-    "1500m": "1500m",
-    "1mi": "1 Mile",
     "5k": "5K",
     "10k": "10K",
     "hm": "Half Marathon",
@@ -75,6 +73,11 @@
     "female": "Female",
     "xAxisLabel": "Finish time",
     "yAxisLabel": "% of runners slower"
+  },
+  "warnings": {
+    "vdotTooSlow": "Your time is outside the supported range. Results are shown for VDOT 30 (the slowest supported value).",
+    "vdotTooFast": "Your time is outside the supported range. Results are shown for VDOT 85 (the fastest supported value).",
+    "ageGradingSuppressed": "Your time appears to be faster than the age-graded world standard. Age grading results are not shown."
   },
   "results": {
     "prompt": "Select a distance and enter your time to see results."

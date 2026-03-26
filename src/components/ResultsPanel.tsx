@@ -3,6 +3,7 @@ import type { Distance } from '../data/distances'
 import type { AgeComparisonRow } from '../calc/ageComparison'
 import type { RaceTimeEntry } from '../calc/raceTimes'
 import type { TrainingPaceResult } from '../calc/trainingPaces'
+import type { Warning } from '../types'
 import { VdotScore } from './VdotScore'
 import { UnifiedTrainingCard } from './UnifiedTrainingCard'
 import { AgeComparisonCard } from './AgeComparisonCard'
@@ -18,11 +19,34 @@ export interface Results {
   userAge: number | null
   gender: 'm' | 'f' | null
   units: 'km' | 'mi'
+  warnings: Warning[]
 }
 
 interface ResultsPanelProps {
   results: Results | null
   onUnitsChange: (units: 'km' | 'mi') => void
+}
+
+function WarningBanner({ warnings }: { warnings: Warning[] }) {
+  const { t } = useTranslation()
+  if (warnings.length === 0) return null
+
+  const messages = warnings.map((w) => {
+    if (w.type === 'vdotOutOfRange') {
+      return w.direction === 'tooSlow' ? t('warnings.vdotTooSlow') : t('warnings.vdotTooFast')
+    }
+    return t('warnings.ageGradingSuppressed')
+  })
+
+  return (
+    <div className="bg-neo-orange border-3 border-neo-dark rounded-xl p-4 shadow-[6px_6px_0px_0px_#1A1A2E]">
+      {messages.map((msg, i) => (
+        <p key={i} className="text-neo-dark font-bold text-sm">
+          {msg}
+        </p>
+      ))}
+    </div>
+  )
 }
 
 export function ResultsPanel({ results, onUnitsChange }: ResultsPanelProps) {
@@ -36,10 +60,12 @@ export function ResultsPanel({ results, onUnitsChange }: ResultsPanelProps) {
     )
   }
 
-  const { distance, timeSecs, vdot, raceTimes, trainingPaces, ageComparison, userAge, gender, units } = results
+  const { distance, timeSecs, vdot, raceTimes, trainingPaces, ageComparison, userAge, gender, units, warnings } = results
 
   return (
     <div className="mt-8 space-y-6">
+      <WarningBanner warnings={warnings} />
+
       <VdotScore vdot={vdot} />
 
       {raceTimes && raceTimes.length > 0 && trainingPaces && trainingPaces.paces.length > 0 && (

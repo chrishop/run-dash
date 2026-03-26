@@ -20,17 +20,19 @@ function subscribe(callback: () => void): () => void {
   return () => window.removeEventListener('popstate', callback)
 }
 
-function parseParams(search: string): UrlParams {
+export function parseParams(search: string): UrlParams {
   const params = new URLSearchParams(search)
   const ageStr = params.get('a')
   const gender = params.get('g')
   const lang = params.get('lang')
   const units = params.get('units')
 
+  const parsedAge = ageStr ? parseInt(ageStr, 10) : null
+
   return {
     d: params.get('d'),
     t: params.get('t'),
-    a: ageStr ? parseInt(ageStr, 10) : null,
+    a: parsedAge !== null && isNaN(parsedAge) ? null : parsedAge,
     g: gender === 'm' || gender === 'f' ? gender : null,
     units: units === 'mi' ? 'mi' : 'km',
     lang: lang === 'ko' ? 'ko' : 'en',
