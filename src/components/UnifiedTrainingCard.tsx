@@ -81,7 +81,7 @@ export function UnifiedTrainingCard({
                     <tr
                       key={rt.distance.id}
                       className={`border-b-2 border-neo-dark/20 ${
-                        isCurrentDistance ? 'bg-neo-green/30 font-black' : 'font-bold'
+                        isCurrentDistance ? 'bg-neo-yellow text-neo-dark font-black' : 'font-bold'
                       }`}
                     >
                       <td className="py-2 px-2">{t(`distances.${rt.distance.id}`)}</td>
