@@ -10,8 +10,8 @@ import { AgeComparisonCard } from './AgeComparisonCard'
 import { FinishingTimePercentileCard } from './FinishingTimePercentileCard'
 
 export interface Results {
-  distance: Distance
-  timeSecs: number
+  distance: Distance | null
+  timeSecs: number | null
   vdot: number | null
   raceTimes: RaceTimeEntry[] | null
   trainingPaces: TrainingPaceResult | null
@@ -83,17 +83,19 @@ export function ResultsPanel({ results, onUnitsChange }: ResultsPanelProps) {
         <UnifiedTrainingCard
           raceTimes={raceTimes}
           trainingPaces={trainingPaces}
-          currentDistanceId={distance.id}
+          currentDistanceId={distance?.id ?? null}
           units={units}
           onUnitsChange={onUnitsChange}
         />
       )}
 
-      {ageComparison && ageComparison.length > 0 && (
+      {distance && ageComparison && ageComparison.length > 0 && (
         <AgeComparisonCard rows={ageComparison} userAge={userAge} distanceId={distance.id} />
       )}
 
-      <FinishingTimePercentileCard distanceId={distance.id} timeSecs={timeSecs} gender={gender} />
+      {distance && timeSecs !== null && (
+        <FinishingTimePercentileCard distanceId={distance.id} timeSecs={timeSecs} gender={gender} />
+      )}
     </div>
   )
 }

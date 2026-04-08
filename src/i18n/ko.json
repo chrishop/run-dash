@@ -10,7 +10,12 @@
     "age": "나이",
     "gender": "성별",
     "male": "남성",
-    "female": "여성"
+    "female": "여성",
+    "mode": "모드",
+    "modeRaceTime": "레이스 기록",
+    "modeVdot": "VDOT",
+    "vdot": "VDOT",
+    "vdotPlaceholder": "예: 50"
   },
   "distances": {
     "5k": "5K",

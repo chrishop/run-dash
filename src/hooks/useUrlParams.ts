@@ -7,9 +7,11 @@ export interface UrlParams {
   g: 'm' | 'f' | null
   units: 'km' | 'mi'
   lang: 'en' | 'ko'
+  mode: 'time' | 'vdot'
+  vdot: number | null
 }
 
-type ParamKey = 'd' | 't' | 'a' | 'g' | 'units' | 'lang'
+type ParamKey = 'd' | 't' | 'a' | 'g' | 'units' | 'lang' | 'mode' | 'vdot'
 
 function getSnapshot(): string {
   return window.location.search
@@ -26,8 +28,11 @@ export function parseParams(search: string): UrlParams {
   const gender = params.get('g')
   const lang = params.get('lang')
   const units = params.get('units')
+  const modeRaw = params.get('mode')
+  const vdotRaw = params.get('vdot')
 
   const parsedAge = ageStr ? parseInt(ageStr, 10) : null
+  const parsedVdot = vdotRaw ? parseFloat(vdotRaw) : null
 
   return {
     d: params.get('d'),
@@ -36,6 +41,8 @@ export function parseParams(search: string): UrlParams {
     g: gender === 'm' || gender === 'f' ? gender : null,
     units: units === 'mi' ? 'mi' : 'km',
     lang: lang === 'ko' ? 'ko' : 'en',
+    mode: modeRaw === 'vdot' ? 'vdot' : 'time',
+    vdot: parsedVdot !== null && !isNaN(parsedVdot) ? parsedVdot : null,
   }
 }
 

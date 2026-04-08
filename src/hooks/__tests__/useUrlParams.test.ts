@@ -12,6 +12,8 @@ describe('parseParams (URL parameter parsing)', () => {
       g: 'm',
       units: 'km',
       lang: 'en',
+      mode: 'time',
+      vdot: null,
     })
   })
 
@@ -25,6 +27,8 @@ describe('parseParams (URL parameter parsing)', () => {
       g: null,
       units: 'km',
       lang: 'en',
+      mode: 'time',
+      vdot: null,
     })
   })
 
@@ -84,12 +88,52 @@ describe('parseParams (URL parameter parsing)', () => {
   it('ignores unknown params', () => {
     const result = parseParams('?d=5k&foo=bar&baz=123')
     expect(result.d).toBe('5k')
-    expect(Object.keys(result)).toEqual(['d', 't', 'a', 'g', 'units', 'lang'])
+    expect(Object.keys(result)).toEqual(['d', 't', 'a', 'g', 'units', 'lang', 'mode', 'vdot'])
   })
 
   // Old distance IDs pass through (handled downstream by getDistanceById returning undefined)
   it('passes through unknown distance IDs', () => {
     expect(parseParams('?d=3km').d).toBe('3km')
+  })
+
+  // Mode parsing
+  it('defaults mode to time when absent', () => {
+    expect(parseParams('').mode).toBe('time')
+  })
+
+  it('parses mode=vdot', () => {
+    expect(parseParams('?mode=vdot').mode).toBe('vdot')
+  })
+
+  it('defaults mode to time for unknown value', () => {
+    expect(parseParams('?mode=unknown').mode).toBe('time')
+  })
+
+  // VDOT parsing
+  it('returns null vdot when absent', () => {
+    expect(parseParams('').vdot).toBeNull()
+  })
+
+  it('parses vdot=50 as integer', () => {
+    expect(parseParams('?vdot=50').vdot).toBe(50)
+  })
+
+  it('parses vdot=48.5 as float', () => {
+    expect(parseParams('?vdot=48.5').vdot).toBe(48.5)
+  })
+
+  it('returns null vdot for non-numeric value', () => {
+    expect(parseParams('?vdot=abc').vdot).toBeNull()
+  })
+
+  it('parses full vdot mode URL', () => {
+    const result = parseParams('?mode=vdot&vdot=50&a=35&g=m')
+    expect(result.mode).toBe('vdot')
+    expect(result.vdot).toBe(50)
+    expect(result.a).toBe(35)
+    expect(result.g).toBe('m')
+    expect(result.d).toBeNull()
+    expect(result.t).toBeNull()
   })
 
   // Age parsing

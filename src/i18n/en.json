@@ -10,7 +10,12 @@
     "age": "Age",
     "gender": "Gender",
     "male": "Male",
-    "female": "Female"
+    "female": "Female",
+    "mode": "Mode",
+    "modeRaceTime": "Race Time",
+    "modeVdot": "VDOT",
+    "vdot": "VDOT",
+    "vdotPlaceholder": "e.g. 50"
   },
   "distances": {
     "5k": "5K",

@@ -6,7 +6,7 @@ import { formatTime, formatPace } from '../calc/timeUtils'
 interface UnifiedTrainingCardProps {
   raceTimes: RaceTimeEntry[]
   trainingPaces: TrainingPaceResult
-  currentDistanceId: string
+  currentDistanceId: string | null
   units: 'km' | 'mi'
   onUnitsChange: (units: 'km' | 'mi') => void
 }

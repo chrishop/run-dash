@@ -23,6 +23,25 @@ function App() {
   }, [params.lang, i18n])
 
   const results = useMemo(() => {
+    // --- VDOT mode ---
+    if (params.mode === 'vdot') {
+      const vdot = params.vdot
+      if (vdot === null || vdot < 10 || vdot > 85) return null
+      return {
+        distance: null,
+        timeSecs: null,
+        vdot,
+        raceTimes: getRaceTimes(vdot),
+        trainingPaces: getTrainingPaces(vdot),
+        ageComparison: null,
+        userAge: params.a,
+        gender: params.g,
+        units: params.units,
+        warnings: [] as Warning[],
+      }
+    }
+
+    // --- Race time mode ---
     const distance = params.d ? getDistanceById(params.d) : null
     const timeSecs = params.t ? parseTime(params.t) : null
 
@@ -71,7 +90,7 @@ function App() {
       units: params.units,
       warnings,
     }
-  }, [params.d, params.t, params.a, params.g, params.units])
+  }, [params.mode, params.vdot, params.d, params.t, params.a, params.g, params.units])
 
   return (
     <div className="min-h-screen bg-neo-red">
